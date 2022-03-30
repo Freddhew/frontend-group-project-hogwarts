@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { FaBars, FaFacebook, FaTimes, FaInstagram } from 'react-icons/fa'
 // import { / } from 'react-icons/gi'
 import './NavbarStyles.css'
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     const [nav, setNav] = useState(false)
@@ -16,10 +17,12 @@ const Navbar = () => {
     <div className='navbar'>
         <div className="container">
             <ul className={nav ? 'nav-menu active' : 'nav-menu' }>
-                    <li><a href='/'>Education</a></li>
-                    <li><a href='/'>Staff</a></li>
-                    <li><a href='/'>Administration</a></li>
-                    <li><a href='/'>Apply</a></li>
+                <li><Link className="nav-item" to="/">Home</Link></li>
+                <li><Link className="nav-item" to="/education">Education</Link></li>
+                <li><Link className="nav-item" to="/courses">Courses</Link></li>
+                <li><Link className="nav-item" to="/apply">Apply</Link></li>
+                <li><Link className="nav-item" to="/staff">Staff</Link></li>
+                <li><Link className="nav-item" to="/login" >Login</Link></li>
 
                     <div className='mobile-menu'>
                         <button>Shop</button>
