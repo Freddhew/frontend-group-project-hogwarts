@@ -1,3 +1,5 @@
+import "./css/course.css";
+
 const Staff = () => {
     return (
       <div className="App">
