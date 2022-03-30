@@ -3,7 +3,8 @@ import ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
 
-import Navbar from "./components/Navbar";
+import Navbar from './components/navbar/Navbar';
+import Footer from './components/footer/Footer';
 
 import App from "./App";
 
@@ -22,7 +23,7 @@ ReactDOM.render(
         <Route path="/education" element={<Education />} />
         <Route path="/apply" element={<Apply />} />
         <Route path="/courses" element={<Courses />} />
-        <Route path="/Staff" element={<Staff />} />
+        <Route path="/staff" element={<Staff />} />
         <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
