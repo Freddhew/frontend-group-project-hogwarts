@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useEffect, useState } from "react";
 import "./css/staff.css";
 // import Database from "../database/Database.js"
@@ -123,6 +124,16 @@ function showStaffManagement() {
         </div>
       </div>
   </div>
+=======
+const Staff = () => {
+    return (
+      <div className="App">
+        <h1>Staff</h1>
+        <p>
+            Just a paragraph
+        </p>
+    </div>
+>>>>>>> struc
   );
 }
   

@@ -18,13 +18,40 @@ body{
     margin-bottom: 2em;
 }
 
+<<<<<<< HEAD:src/views/css/staff.css
 .staff-input-management{
+=======
+.padding-top{
+    padding-top: 1em;
+}
+
+.container{
+    background-color: rgba(209, 209, 209, 0.288);
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.course-input-management{
+>>>>>>> struc:src/views/css/course.css
     text-align: left;
     padding: 2em;
 }
 
+<<<<<<< HEAD:src/views/css/staff.css
+=======
+.course-list{
+    
+}
 
-.staff-input-field{
+.course-list-item{
+    margin: 1em;
+    background-color: aqua;
+    text-align: left;
+
+}
+>>>>>>> struc:src/views/css/course.css
+
+.course-input-field{
     padding: 5px;
     font-size: 16px;
     border-width: 1px;
@@ -37,11 +64,11 @@ body{
     margin: 1em;
 }
 
-.staff-input-field:focus {
+.course-input-field:focus {
     outline:none;
 }
 
-.add-staff-btn {
+.add-course-btn {
 	box-shadow:inset 0px 1px 0px 0px #ffffff;
 	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
 	border-radius:6px;
@@ -56,10 +83,10 @@ body{
 	text-decoration:none;
 	text-shadow:0px 1px 0px #ffffff;
 }
-.add-staff-btn:hover {
+.add-course-btn:hover {
     background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
 }
-.add-staff-btn:active {
+.add-course-btn:active {
     position:relative;
     top:1px;
 }
