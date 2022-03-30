@@ -18,9 +18,6 @@ body{
     margin-bottom: 2em;
 }
 
-<<<<<<< HEAD:src/views/css/staff.css
-.staff-input-management{
-=======
 .padding-top{
     padding-top: 1em;
 }
@@ -32,24 +29,10 @@ body{
 }
 
 .course-input-management{
->>>>>>> struc:src/views/css/course.css
     text-align: left;
     padding: 2em;
 }
 
-<<<<<<< HEAD:src/views/css/staff.css
-=======
-.course-list{
-    
-}
-
-.course-list-item{
-    margin: 1em;
-    background-color: aqua;
-    text-align: left;
-
-}
->>>>>>> struc:src/views/css/course.css
 
 .course-input-field{
     padding: 5px;
