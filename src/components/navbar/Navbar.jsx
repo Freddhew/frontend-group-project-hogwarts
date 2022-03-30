@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { FaBars, FaFacebook, FaTimes, FaInstagram } from 'react-icons/fa'
-import { GiCarWheel } from 'react-icons/gi'
+// import { / } from 'react-icons/gi'
 import './NavbarStyles.css'
 
 const Navbar = () => {
@@ -27,7 +27,7 @@ const Navbar = () => {
                         <div className="social-icons">
                             <FaFacebook className='icon' />
                             <FaInstagram className='icon' />
-                            <GiCarWheel className='icon' />
+                            {/* <GiCarWheel className='icon' /> */}
                         </div>
                     </div>
             </ul>
