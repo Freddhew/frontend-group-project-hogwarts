@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { FaBars, FaFacebook, FaTimes, FaInstagram } from 'react-icons/fa'
-// import { / } from 'react-icons/gi'
+import { GiFairyWand } from 'react-icons/gi'
 import './NavbarStyles.css'
 
 const Navbar = () => {
@@ -16,18 +16,18 @@ const Navbar = () => {
     <div className='navbar'>
         <div className="container">
             <ul className={nav ? 'nav-menu active' : 'nav-menu' }>
+                    <li><a href='/'>Home</a></li>
                     <li><a href='/'>Education</a></li>
+                    <li><a href='/'>Courses</a></li>
                     <li><a href='/'>Staff</a></li>
-                    <li><a href='/'>Administration</a></li>
-                    <li><a href='/'>Apply</a></li>
 
                     <div className='mobile-menu'>
-                        <button>Shop</button>
-                        <button>Account</button>
+                        <button>Log in</button>
+                        <button>Apply</button>
                         <div className="social-icons">
                             <FaFacebook className='icon' />
                             <FaInstagram className='icon' />
-                            {/* <GiCarWheel className='icon' /> */}
+                            <GiFairyWand className='icon' />
                         </div>
                     </div>
             </ul>
@@ -36,9 +36,9 @@ const Navbar = () => {
                 <h3>School of Magic</h3>
             </div>
 
-            <ul className={nav ? 'nav-menu active' : 'nav-menu' }>
+            <ul className='nav-menu hide'>
                 <li><a href='/'>Log In</a></li>
-                <li><a href='/'>Register</a></li>
+                <li><a href='/'>Apply</a></li>
             </ul>
 
             <div className="hamburger" onClick={handleNav}>
