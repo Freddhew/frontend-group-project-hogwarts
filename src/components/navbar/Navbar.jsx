@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { FaBars, FaFacebook, FaTimes, FaInstagram } from 'react-icons/fa'
 import { GiFairyWand } from 'react-icons/gi'
 import './NavbarStyles.css'
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     const [nav, setNav] = useState(false)
