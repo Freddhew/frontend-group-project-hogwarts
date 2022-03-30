@@ -1,12 +1,16 @@
-// import React, { useState, useEffect, useMemo } from 'react';
-
-import './App.css';
+import React from 'react'
+import Contact from './components/contact/Contact';
+import Educations from './components/educations/Educations';
+import Footer from './components/footer/Footer';
+import Navbar from './components/navbar/Navbar';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Home Page</h1>
-      <p>Home page content!</p>
+    <div>
+      <Navbar />
+      <Educations />
+      <Contact />
+      <Footer />
     </div>
   );
 }
