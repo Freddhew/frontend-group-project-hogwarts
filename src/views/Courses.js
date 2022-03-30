@@ -1,101 +1,140 @@
-import { useEffect, useState } from "react";
-import "./css/course.css";
+import React from "react";
+import { get, post, put, remove } from "../utility/fetchUtility"; // get the same from Rebecca to add api to teacher
+import { useState, useEffect } from "react";
+import "./css/courses.css";
 
-const Course = () => {
+function Courses() {
+  const [id, setId] = useState("");
+  const [counter, setCounter] = useState(Date.now());
+  const [teacher, setTeacher] = useState([]);
+  const [chooseTeacher, setChooseTeacher] = useState("");
   const [course, setCourse] = useState([]);
-  const [name, setName] = useState();
-  const [role, setRole] = useState();
-  const [age, setAge] = useState();
-  const [gender, setGender] = useState();
-  const [deployDate, setDeployDate] = useState();
-
-  const addCourse = (event) => {
-    event.preventDefault();
-    setCourse([
-      ...course,
-      {
-        id: course.length,
-        name: name,
-        role: role,
-        age: age,
-        gender: gender,
-        deployDate: deployDate
-      }
-    ]);
-    setName("");
-    setRole("");
-    setAge(parseInt());
-    setGender("");
-    setDeployDate("");
-};
+  const [courseName, setCourseName] = useState("");
+  const [courseDescription, setCourseDescription] = useState("");
+  const [courseLength, setCourseLength] = useState("");
+  useEffect(() => {
+    get("/Courses").then((response) => setCourse(response.data));
+  }, []);
+  useEffect(() => {
+    get("/Staff").then((response) => setTeacher(response.data));
+  }, []);
 
   return (
-    <div className="App">
-      <h1 className="padding-top">Add Staff</h1>
-      <div className="course-input-management container">
-        <form onSubmit={addCourse}>
-          <label>
-            <input
-              className="course-input-field"
-              name="name"
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Course Name"/><br />
+    <div className="courseContainer">
+      <div className="coursesMainSection">
+        <div className="addedCoursesList">
+          <h2 className="courseListHeader">Kurslista</h2>
+          <ul>
+            {course.map((courses) => {
+              return (
+                <div>
+                  <li key={courses.courseId}>
+                    <p>KursID: {courses.courseId}</p>
+                    <p>Kursnamn: {courses.courseName}</p>
+                    <p>Kursbeskrivning: {courses.courseDescription}</p>
+                    <p>Lärare: {courses.teacher} </p>
+                    <p>Kurslängd: {courses.courseLength}</p>
+                  </li>
+                </div>
+              );
+            })}
+          </ul>
+        </div>
 
-            <input
-              className="course-input-field"
-              name="role"
-              type="text"
-              value={role}
-              onChange={(e) => setRole(e.target.value)}
-              placeholder="Enter Role"/><br />
+        <div className="createCourseForm">
+          <h2 className="courseListHeader">Skapa kurs</h2>
+          <input
+            value={courseName}
+            className="inputField"
+            placeholder="Kursnamn"
+            onChange={(e) => setCourseName(e.target.value)}
+          ></input>
+          <input
+            value={courseDescription}
+            className="inputField"
+            placeholder="Kursbeskrivning"
+            onChange={(e) => setCourseDescription(e.target.value)}
+          ></input>
+          {/* varför skriver den in lit om och om igen varje gång man klickar */}
+          <select
+            className="teacherSelect"
+            value={chooseTeacher}
+            onChange={(event) => setChooseTeacher(event.target.value)}
+          >
+            <option value="" selected disabled hidden>
+              Välj
+            </option>
+            {teacher.map((teachers) => {
+              if (teachers.profession === "lärare") {
+                return (
+                  <option className="option" key={teachers.id}>
+                    {`${teachers.firstName} ${teachers.lastName}  `}
+                  </option>
+                );
+              }
+            })}
+          </select>
+          <input
+            className="inputLength"
+            value={courseLength}
+            placeholder="Kurslängd i veckor"
+            onChange={(e) => setCourseLength(e.target.value)}
+          ></input>
+          <input
+            className="inputField"
+            value={id}
+            placeholder="KursID"
+            onChange={(e) => {
+              console.log(e.target.value);
+              setId(e.target.value);
+            }}
+          ></input>
+          <button
+            className="btnCourse"
+            onClick={() => {
+              post("/Courses", {
+                id: counter,
+                courseName: courseName,
+                teacher: chooseTeacher,
+                courseLength: courseLength,
+                courseDescription: courseDescription,
+              });
 
-            <input
-              className="course-input-field"
-              name="age"
-              type="date"
-              value={age}
-              onChange={(e) => setAge(e.target.value)}
-              placeholder="Year of Birth"/><br />
-
-            <input
-              className="course-input-field"
-              name="gender"
-              type="text"
-              value={gender}
-              onChange={(e) => setGender(e.target.value)}
-              placeholder="Enter Gender"/><br />
-
-            <input
-              className="course-input-field"
-              name="deployDate"
-              type="date"
-              value={deployDate}
-              onChange={(e) => setDeployDate(e.target.value)}
-              placeholder="Date of deployment"/><br />
-            
-            <button className="add-course-btn" onClick={addCourse}>Add New Course</button>
-
-          </label>
-        </form>
+              setCounter(Date.now());
+              get("/Courses").then((response) => setCourse(response.data));
+            }}
+          >
+            Skapa ny kurs
+          </button>
+          <button
+            className="btnCourse"
+            onClick={() => {
+              console.log("hej", id);
+              put(`/Courses/${id}`, {
+                id: id,
+                courseName: courseName,
+                teacher: chooseTeacher,
+                courseLength: courseLength,
+                courseDescription: courseDescription,
+              }).then((response) => console.log(response));
+              get("/Courses").then((response) => setCourse(response.data));
+            }}
+          >
+            Uppdatera
+          </button>
+          <button
+            className="btnCourse"
+            onClick={() => {
+              remove(`/Courses/${id}`);
+              get("/Courses").then((response) => setCourse(response.data));
+            }}
+          >
+            Ta bort
+          </button>
+        </div>
       </div>
-      <h1>Course List</h1>
-      <div className="course-input-management container">
-        <ul className="course-list">
-          {course.map((course) => (
-            <li className="course-list-item" key={course.id}>
-              Course: {course.name}&nbsp;<br/>
-              Role: {course.role}&nbsp;<br/>
-              Age: {course.age}&nbsp;<br/>
-              Gender: {course.gender}&nbsp;<br/>
-              Deployment Date: {course.deployDate}&nbsp;&nbsp;&nbsp;&nbsp;
-            </li>
-          ))}
-        </ul>
-      </div><br /><br />
-  </div>
+    </div>
   );
 }
-  
-export default Course;
+
+export default Courses;
