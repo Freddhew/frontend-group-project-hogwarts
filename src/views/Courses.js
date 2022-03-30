@@ -1,20 +1,20 @@
 import { useEffect, useState } from "react";
-import "./css/staff.css";
+import "./css/course.css";
 
-const Staff = () => {
-  const [staff, setStaff] = useState([]);
+const Course = () => {
+  const [course, setCourse] = useState([]);
   const [name, setName] = useState();
   const [role, setRole] = useState();
   const [age, setAge] = useState();
   const [gender, setGender] = useState();
   const [deployDate, setDeployDate] = useState();
 
-  const addStaff = (event) => {
+  const addCourse = (event) => {
     event.preventDefault();
-    setStaff([
-      ...staff,
+    setCourse([
+      ...course,
       {
-        id: staff.length,
+        id: course.length,
         name: name,
         role: role,
         age: age,
@@ -32,19 +32,19 @@ const Staff = () => {
   return (
     <div className="App">
       <h1 className="padding-top">Add Staff</h1>
-      <div className="staff-input-management container">
-        <form onSubmit={addStaff}>
+      <div className="course-input-management container">
+        <form onSubmit={addCourse}>
           <label>
             <input
-              className="staff-input-field"
+              className="course-input-field"
               name="name"
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="Staff Name"/><br />
+              placeholder="Course Name"/><br />
 
             <input
-              className="staff-input-field"
+              className="course-input-field"
               name="role"
               type="text"
               value={role}
@@ -52,7 +52,7 @@ const Staff = () => {
               placeholder="Enter Role"/><br />
 
             <input
-              className="staff-input-field"
+              className="course-input-field"
               name="age"
               type="date"
               value={age}
@@ -60,7 +60,7 @@ const Staff = () => {
               placeholder="Year of Birth"/><br />
 
             <input
-              className="staff-input-field"
+              className="course-input-field"
               name="gender"
               type="text"
               value={gender}
@@ -68,28 +68,28 @@ const Staff = () => {
               placeholder="Enter Gender"/><br />
 
             <input
-              className="staff-input-field"
+              className="course-input-field"
               name="deployDate"
               type="date"
               value={deployDate}
               onChange={(e) => setDeployDate(e.target.value)}
               placeholder="Date of deployment"/><br />
             
-            <button className="add-staff-btn" onClick={addStaff}>Add New Staff</button>
+            <button className="add-course-btn" onClick={addCourse}>Add New Course</button>
 
           </label>
         </form>
       </div>
-      <h1>Staff List</h1>
-      <div className="staff-input-management container">
-        <ul className="staff-list">
-          {staff.map((staff) => (
-            <li className="staff-list-item" key={staff.id}>
-              Staff: {staff.name}&nbsp;<br/>
-              Role: {staff.role}&nbsp;<br/>
-              Age: {staff.age}&nbsp;<br/>
-              Gender: {staff.gender}&nbsp;<br/>
-              Deployment Date: {staff.deployDate}&nbsp;&nbsp;&nbsp;&nbsp;
+      <h1>Course List</h1>
+      <div className="course-input-management container">
+        <ul className="course-list">
+          {course.map((course) => (
+            <li className="course-list-item" key={course.id}>
+              Course: {course.name}&nbsp;<br/>
+              Role: {course.role}&nbsp;<br/>
+              Age: {course.age}&nbsp;<br/>
+              Gender: {course.gender}&nbsp;<br/>
+              Deployment Date: {course.deployDate}&nbsp;&nbsp;&nbsp;&nbsp;
             </li>
           ))}
         </ul>
@@ -98,4 +98,4 @@ const Staff = () => {
   );
 }
   
-export default Staff;
+export default Course;

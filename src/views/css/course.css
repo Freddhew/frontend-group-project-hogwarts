@@ -30,23 +30,23 @@ body{
     margin-right: 20%;
 }
 
-.staff-input-management{
+.course-input-management{
     text-align: left;
     padding: 2em;
 }
 
-.staff-list{
+.course-list{
     
 }
 
-.staff-list-item{
+.course-list-item{
     margin: 1em;
     background-color: aqua;
     text-align: left;
 
 }
 
-.staff-input-field{
+.course-input-field{
     padding: 5px;
     font-size: 16px;
     border-width: 1px;
@@ -61,11 +61,11 @@ body{
     margin: 1em;
 }
 
-.staff-input-field:focus {
+.course-input-field:focus {
     outline:none;
 }
 
-.add-staff-btn {
+.add-course-btn {
 	box-shadow:inset 0px 1px 0px 0px #ffffff;
 	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
 	background-color:#ffffff;
@@ -81,11 +81,11 @@ body{
 	text-decoration:none;
 	text-shadow:0px 1px 0px #ffffff;
 }
-.add-staff-btn:hover {
+.add-course-btn:hover {
     background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
     background-color:#f6f6f6;
 }
-.add-staff-btn:active {
+.add-course-btn:active {
     position:relative;
     top:1px;
 }

@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar";
 import App from "./App";
 import Education from "./views/Education.js";
 import Apply from "./views/Apply";
-import Staff from "./views/Staff";
+import Courses from "./views/Courses";
 import Administration from "./views/Administration";
 import Login from "./views/Login";
 
@@ -18,7 +18,7 @@ ReactDOM.render(
         <Route path="/" element={<App />} />
         <Route path="/education" element={<Education />} />
         <Route path="/apply" element={<Apply />} />
-        <Route path="/staff" element={<Staff />} />
+        <Route path="/courses" element={<Courses />} />
         <Route path="/administration" element={<Administration />} />
         <Route path="/login" element={<Login />} />
       </Routes>
