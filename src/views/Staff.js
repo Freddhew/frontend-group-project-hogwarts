@@ -14,7 +14,7 @@ const Staff = () => {
   const [yrke, setYrke] = useState("");
   
   useEffect(() => {
-    get('/staff').then((response) => setStaff(response.data));
+    get("/staff").then((response) => setStaff(response.data));
   }, []);
 
 
