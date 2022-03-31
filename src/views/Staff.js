@@ -155,20 +155,7 @@ const Staff = () => {
                 <br/>Förnamn, Efternamn, Email, Bankkontonummer.
                 </div>
 
-                <select
-                  className="select"
-                  value={id}
-                  onChange={(event) => setId(event.target.value)}
-                  placeholder="Id för den du vill ändra"
-                >
-                  {staff.map(() => {
-                    return (
-                      <option className="option" key={staff.id}>
-                        {`${staff.id}  `}
-                      </option>
-                    );
-                  })}
-                </select>
+                
 
                 <div className="personallistavisa">
                   <h4>Person</h4>
