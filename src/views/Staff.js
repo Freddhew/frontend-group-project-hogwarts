@@ -29,20 +29,20 @@ const Staff = () => {
 
                       
                   
-                      <label/> Förnamn:
+                      <label/> Firstname:
                       <input
                       className="staff-input1"
                       name="firstname"
                       value={fn}
-                      placeholder="Förnamn"
+                      placeholder="Firstname"
                       onChange={(event) => setFn(event.target.value)}/>
                       
                       <br/>
-                      <label/>Efternamn:             
+                      <label/>Lastname:             
                       <input
                       className="staff-input2"
                       value={ln}
-                      placeholder="Efternamn"
+                      placeholder="Lastname"
                       onChange={(event) => setLn(event.target.value)}
                       />
 
@@ -56,7 +56,7 @@ const Staff = () => {
                       />
                       
                       <br/>
-                      <label/>Bankkontonummer:             
+                      <label/>Bank account:             
                       <input
                       className="staff-input4"
                       value={banknr}
@@ -65,12 +65,12 @@ const Staff = () => {
                       />
                       
                       <br/>
-                      <p/>Yrke
+                      <p/>Proffesion
                       <select 
                       className="staff-input5"
                       value={yrke}
                       onChange={(event) => setYrke(event.target.value)}
-                      placeholder="Välj"> Titel:
+                      placeholder="Chose"> Titel:
                       <option></option>
                       <option>Teacher</option>
                       <option>Alternative</option>
