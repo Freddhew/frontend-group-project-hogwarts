@@ -54,3 +54,17 @@
     top:1px;
 }
 
+.courseContainer{
+    background-color: red;
+    padding-top: 3em;
+}
+.coursesMainSection{
+    background-color: #666666;
+}
+.addedCoursesList{
+    background-color: red;
+    padding-top: 3em;
+}
+.courseListHeader{
+    background-color: #666666;
+}

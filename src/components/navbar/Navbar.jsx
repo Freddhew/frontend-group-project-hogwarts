@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { FaBars, FaFacebook, FaTimes, FaInstagram } from 'react-icons/fa'
-// import { / } from 'react-icons/gi'
+import { GiFairyWand } from 'react-icons/gi'
 import './NavbarStyles.css'
 import { Link } from "react-router-dom";
 
@@ -16,7 +16,7 @@ const Navbar = () => {
   return (
     <div className='navbar'>
         <div className="container">
-            <ul className={nav ? 'nav-menu active' : 'nav-menu' }>
+        <ul className={nav ? 'nav-menu active' : 'nav-menu' }>
                 <li><Link className="nav-item" to="/">Home</Link></li>
                 <li><Link className="nav-item" to="/education">Education</Link></li>
                 <li><Link className="nav-item" to="/courses">Courses</Link></li>
@@ -39,9 +39,9 @@ const Navbar = () => {
                 <h3>School of Magic</h3>
             </div>
 
-            <ul className={nav ? 'nav-menu active' : 'nav-menu' }>
+            <ul className='nav-menu hide'>
                 <li><a href='/'>Log In</a></li>
-                <li><a href='/'>Register</a></li>
+                <li><a href='/'>Apply</a></li>
             </ul>
 
             <div className="hamburger" onClick={handleNav}>
