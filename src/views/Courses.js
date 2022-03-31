@@ -1,5 +1,5 @@
 import React from "react";
-import { get, post, put, remove } from "../utility/fetchUtility"; // get the same from Rebecca to add api to teacher
+import { get, post, put, remove } from "../utility/fetchUtility";
 import { useState, useEffect } from "react";
 import "./css/courses.css";
 
