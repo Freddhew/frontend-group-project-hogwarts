@@ -4,7 +4,6 @@ import { get, post, put, remove } from "../utility/fetchUtility";
 
 const Staff = () => {
 
-  const [id, setId] = useState("");
   const [counter, setcounter] = useState(Date.now());
   const [staff, setStaff] = useState([]);
   const [fn, setFn] = useState("");
@@ -33,7 +32,6 @@ const Staff = () => {
                       <input
                       className="staff-input1"
                       name="firstname"
-                      type="text"
                       value={fn}
                       placeholder="Förnamn"
                       onChange={(event) => setFn(event.target.value)}/>
@@ -42,7 +40,6 @@ const Staff = () => {
                       <label/>Efternamn:             
                       <input
                       className="staff-input2"
-                      type="text"
                       value={ln}
                       placeholder="Efternamn"
                       onChange={(event) => setLn(event.target.value)}
@@ -52,7 +49,6 @@ const Staff = () => {
                       <label/>Email:             
                       <input
                       className="staff-input3"
-                      type="text"
                       value={email}
                       placeholder="Email"
                       onChange={(event) => setEmail(event.target.value)}
@@ -62,7 +58,6 @@ const Staff = () => {
                       <label/>Bankkontonummer:             
                       <input
                       className="staff-input4"
-                      type="text"
                       value={banknr}
                       placeholder="Bank-acc-number"
                       onChange={(event) => setBanknr(event.target.value)}
@@ -116,8 +111,8 @@ const Staff = () => {
                       <br/>
                       <button className="buttonstaffUpdate"
                       onClick={()=>{
-                      put(`/Staff/${id}`,{
-                          id:staff.id,
+                      put(`/Staff/${counter}`,{
+                          id:staff.counter,
                           fn:fn,
                           ln:ln,
                           email:email,
@@ -131,7 +126,7 @@ const Staff = () => {
                       <br/>
                       <button className="buttonstaffdelete"
                       onClick={()=>{
-                        remove(`/Staff/${id}`);
+                        remove(`/Staff/${counter}`);
                         get("/Staff").then((response) => setStaff(response.data));
                       }}
                       >Delete</button>
@@ -159,13 +154,13 @@ const Staff = () => {
 
                 <div className="personallistavisa">
                   <h4>Person</h4>
-                  <ul>
+                  <div>
                     {staff.map(()=>{
                       return (
                         <div>
-                        <li key={staff.id}>
+                        <li key={staff.counter}>
                           <p>
-                            id: {staff.id}
+                            id: {staff.counter}
                           </p>
                           <p>
                          Namn: {staff.fn} {staff.ln}
@@ -183,7 +178,7 @@ const Staff = () => {
                         </div>
                       );
                     })}
-                  </ul>
+                  </div>
                 </div>
       
     </div>
