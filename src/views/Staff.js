@@ -70,7 +70,7 @@ const Staff = () => {
                       className="staff-input5"
                       value={yrke}
                       onChange={(event) => setYrke(event.target.value)}
-                      placeholder="Chose"> Titel:
+                      > 
                       <option></option>
                       <option>Teacher</option>
                       <option>Alternative</option>
