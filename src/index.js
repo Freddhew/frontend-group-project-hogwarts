@@ -26,6 +26,7 @@ ReactDOM.render(
         <Route path="/staff" element={<Staff />} />
         <Route path="/login" element={<Login />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
