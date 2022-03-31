@@ -14,7 +14,7 @@ const Staff = () => {
   const [yrke, setYrke] = useState("");
   
   useEffect(() => {
-    get("/staff").then((response) => setStaff(response.data));
+    get('/staff').then((response) => setStaff(response.data));
   }, []);
 
 
@@ -94,7 +94,7 @@ const Staff = () => {
                       <br/>
                       <button className="buttonstaffadd"
                       onClick={()=>{
-                        post('/staff', {
+                        post("/staff", {
                           id:counter,
                           fn:fn,
                           ln:ln,
