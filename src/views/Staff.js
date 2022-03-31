@@ -4,7 +4,7 @@ import { get, post, put, remove } from "../utility/fetchUtility";
 
 const Staff = () => {
 
-  const [id, setId] = useState(0);
+  const [id, setId] = useState("");
   const [counter, setcounter] = useState(Date.now());
   const [staff, setStaff] = useState([]);
   const [fn, setFn] = useState("");
@@ -14,7 +14,7 @@ const Staff = () => {
   const [yrke, setYrke] = useState("");
   
   useEffect(() => {
-    get("/Staff").then((response) => setStaff(response.data));
+    get("/staff").then((response) => setStaff(response.data));
   }, []);
 
 
