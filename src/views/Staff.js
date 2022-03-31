@@ -152,14 +152,14 @@ const Staff = () => {
                 
 
                 <div className="personallistavisa">
-                  <h4>Person</h4>
+                  <h4 className="listavisah1">Person</h4>
                   <div>
                     {staff.map((staffs)=>{
                      console.log(staffs.counter);
                      return (
-                        <div>
+                        <div className="listavisasteg">
                         <li key={staffs.id}>
-                          <p>
+                          <p className="steg1">
                             id: {staffs.id}
                           </p>
                           <p>

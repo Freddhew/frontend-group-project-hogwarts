@@ -85,3 +85,19 @@
     padding-left: 20px;
     padding-right: 20px;
 }
+
+.personallistavisa{
+    list-style-type: none;
+}
+
+.listavisah1{
+    text-align: center;
+}
+
+.listavisasteg{
+    padding-top: 12px;
+    text-align: start;
+    margin-left: 50px;
+    padding-bottom: 10px;
+}
+
