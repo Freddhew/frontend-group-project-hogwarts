@@ -17,6 +17,7 @@ const Staff = () => {
     get("/Staff").then((response) => setStaff(response.data));
   }, []);
 
+
     return (
     <div className="Staff">
         <h1>Staff</h1>
@@ -84,14 +85,22 @@ const Staff = () => {
                       <br/>
                       <button className="buttonstaffread"
                       onClick={()=>{
-                        get('/staff').then((response)=>console.log(response))
+                        get("/Staff",{
+                          id:counter,
+                          fn:fn,
+                          ln:ln,
+                          email:email,
+                          yrke:yrke,
+                          banknr:banknr,
+                        })
+                        
                       }}
                       >Read</button>
 
                       <br/>
                       <button className="buttonstaffadd"
                       onClick={()=>{
-                        post('/staff', {
+                        post('/Staff', {
                           id:counter,
                           fn:fn,
                           ln:ln,
@@ -99,9 +108,7 @@ const Staff = () => {
                           yrke:yrke,
                           banknr:banknr,
                         });
-                        setcounter(Date.now())
-
-                        .then((response)=>console.log(response))
+                        setcounter(Date.now());
                         get("/Staff").then((response) => setStaff(response.data));
                       }}
                       >Add</button>
@@ -109,21 +116,23 @@ const Staff = () => {
                       <br/>
                       <button className="buttonstaffUpdate"
                       onClick={()=>{
-                      put(`/staff/update/${id}`,{
-                        id:counter,
+                      put(`/Staff/${id}`,{
+                          id:staff.id,
                           fn:fn,
                           ln:ln,
                           email:email,
                           yrke:yrke,
                           banknr:banknr,
-                      }).then((response)=>console.log(response))
+                        }).then((response) => console.log(response));
+                        get("/Staff").then((response) => setStaff(response.data));
                       }}
                       >Update</button>
 
                       <br/>
                       <button className="buttonstaffdelete"
                       onClick={()=>{
-                        remove(`/Staff/:staffId${id}`)
+                        remove(`/Staff/${id}`);
+                        get("/Staff").then((response) => setStaff(response.data));
                       }}
                       >Delete</button>
 
@@ -145,7 +154,51 @@ const Staff = () => {
                 <br/> Följande information vill vi spara för all personal: 
                 <br/>Förnamn, Efternamn, Email, Bankkontonummer.
                 </div>
-        
+
+                <select
+                  className="select"
+                  value={id}
+                  onChange={(event) => setId(event.target.value)}
+                  placeholder="Id för den du vill ändra"
+                >
+                  {staff.map(() => {
+                    return (
+                      <option className="option" key={staff.id}>
+                        {`${staff.id}  `}
+                      </option>
+                    );
+                  })}
+                </select>
+
+                <div className="personallistavisa">
+                  <h4>Person</h4>
+                  <ul>
+                    {staff.map(()=>{
+                      return (
+                        <div>
+                        <li key={staff.id}>
+                          <p>
+                            id: {staff.id}
+                          </p>
+                          <p>
+                         Namn: {staff.fn} {staff.ln}
+                          </p>
+                          <p>
+                         Epost {staff.email}
+                          </p>
+                          <p>
+                         Bank nummer {staff.banknr}
+                          </p>
+                          <p>
+                         Yrke {staff.yrke}
+                          </p>
+                        </li>
+                        </div>
+                      );
+                    })}
+                  </ul>
+                </div>
+      
     </div>
     
   );

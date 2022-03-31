@@ -1,16 +1,18 @@
-const fetchUtility = (url,method,body) => {
+const fetchUtility = (url,method = "GET",body ={})  => {
     const options = {
         method,
-    }
- 
-    if (method === 'POST' || method === 'PUT') {
-        options.headers = {
-        "Content-Type": "application/json", }
-        options.body = JSON.stringify(body);
-       }  
-       return fetch(url, options).then((response) => response.json().then(body));
     };
-
+ 
+    if (method === "POST" || method === "PUT") {
+        options.headers = {
+          "Content-Type": "application/json",
+        };
+        options.body = JSON.stringify(body);
+      }
+    
+      return fetch(url, options).then((res) => res.json());
+    };
+    
 const get = (url) => fetchUtility(url, "GET");
 
 const post = (url, body) => fetchUtility(url, "POST", body);
