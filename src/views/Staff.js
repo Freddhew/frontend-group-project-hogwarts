@@ -24,7 +24,7 @@ const Staff = () => {
               Just a paragraph
           </p>
               <div className="blackbox">
-                  <form className="formstaff">
+                  <div className="formstaff">
 
                       
                   
@@ -134,7 +134,7 @@ const Staff = () => {
                         <div className="testar">
                         <p/>test
                         </div>
-                  </form>
+                  </div>
                 <br/>
               </div>
             
