@@ -5,7 +5,7 @@ import { get, post, put, remove } from "../utility/fetchUtility";
 const Staff = () => {
 
   const [counter, setcounter] = useState(Date.now());
-  const [id,SetId] = useState(0)
+  const [id,SetId] = useState()
   const [staff, setStaff] = useState([]);
   const [fn, setFn] = useState("");
   const [ln, setLn] = useState("");
@@ -71,6 +71,7 @@ const Staff = () => {
                       value={yrke}
                       onChange={(event) => setYrke(event.target.value)}
                       placeholder="Välj"> Titel:
+                      <option></option>
                       <option>Teacher</option>
                       <option>Alternative</option>
                       </select>
