@@ -5,6 +5,7 @@ import { get, post, put, remove } from "../utility/fetchUtility";
 const Staff = () => {
 
   const [counter, setcounter] = useState(Date.now());
+  const [id,SetId] = useState(0)
   const [staff, setStaff] = useState([]);
   const [fn, setFn] = useState("");
   const [ln, setLn] = useState("");
@@ -75,27 +76,25 @@ const Staff = () => {
                       </select>
                       <br/>
 
+                      <label/>ID:             
+                      <input
+                      className="staff-input6"
+                      value={id}
+                      placeholder="snickesnack ID"                      
+                      onChange={(event) => {
+                        console.log(event.target.value);
+                        SetId(event.target.value)
+                      }}
+                      /> 
+
 
 
                       <br/>
-                      <button className="buttonstaffread"
-                      onClick={()=>{
-                        get("/Staff",{
-                          id:counter,
-                          fn:fn,
-                          ln:ln,
-                          email:email,
-                          yrke:yrke,
-                          banknr:banknr,
-                        })
-                        
-                      }}
-                      >Read</button>
-
+                      
                       <br/>
                       <button className="buttonstaffadd"
                       onClick={()=>{
-                        post('/Staff', {
+                        post('/staff', {
                           id:counter,
                           fn:fn,
                           ln:ln,
@@ -104,14 +103,14 @@ const Staff = () => {
                           banknr:banknr,
                         });
                         setcounter(Date.now());
-                        get("/Staff").then((response) => setStaff(response.data));
+                        get("/staff").then((response) => setStaff(response.data));
                       }}
                       >Add</button>
                       
                       <br/>
                       <button className="buttonstaffUpdate"
                       onClick={()=>{
-                      put(`/Staff/${counter}`,{
+                      put(`/staff/${counter}`,{
                           id:staff.counter,
                           fn:fn,
                           ln:ln,
@@ -119,15 +118,15 @@ const Staff = () => {
                           yrke:yrke,
                           banknr:banknr,
                         }).then((response) => console.log(response));
-                        get("/Staff").then((response) => setStaff(response.data));
+                        get("/staff").then((response) => setStaff(response.data));
                       }}
                       >Update</button>
 
                       <br/>
                       <button className="buttonstaffdelete"
                       onClick={()=>{
-                        remove(`/Staff/${counter}`);
-                        get("/Staff").then((response) => setStaff(response.data));
+                        remove(`/staff/${counter}`);
+                        get("/staff").then((response) => setStaff(response.data));
                       }}
                       >Delete</button>
 
@@ -155,24 +154,25 @@ const Staff = () => {
                 <div className="personallistavisa">
                   <h4>Person</h4>
                   <div>
-                    {staff.map(()=>{
-                      return (
+                    {staff.map((staffs)=>{
+                     console.log(staffs.counter);
+                     return (
                         <div>
-                        <li key={staff.counter}>
+                        <li key={staffs.id}>
                           <p>
-                            id: {staff.counter}
+                            id: {staffs.id}
                           </p>
                           <p>
-                         Namn: {staff.fn} {staff.ln}
+                         Namn: {staffs.fn} {staffs.ln}
                           </p>
                           <p>
-                         Epost {staff.email}
+                         Epost {staffs.email}
                           </p>
                           <p>
-                         Bank nummer {staff.banknr}
+                         Bank nummer {staffs.banknr}
                           </p>
                           <p>
-                         Yrke {staff.yrke}
+                         Yrke {staffs.yrke}
                           </p>
                         </li>
                         </div>
