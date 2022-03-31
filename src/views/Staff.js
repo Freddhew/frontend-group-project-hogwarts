@@ -4,7 +4,6 @@ import { get, post, put, remove } from "../utility/fetchUtility";
 
 const Staff = () => {
 
-  const [id, setId] = useState(0);
   const [counter, setcounter] = useState(Date.now());
   const [staff, setStaff] = useState([]);
   const [fn, setFn] = useState("");
@@ -14,8 +13,9 @@ const Staff = () => {
   const [yrke, setYrke] = useState("");
   
   useEffect(() => {
-    get("/Staff").then((response) => setStaff(response.data));
+    get("/staff").then((response) => setStaff(response.data));
   }, []);
+
 
     return (
     <div className="Staff">
@@ -24,7 +24,7 @@ const Staff = () => {
               Just a paragraph
           </p>
               <div className="blackbox">
-                  <form className="formstaff">
+                  <div className="formstaff">
 
                       
                   
@@ -32,7 +32,6 @@ const Staff = () => {
                       <input
                       className="staff-input1"
                       name="firstname"
-                      type="text"
                       value={fn}
                       placeholder="Förnamn"
                       onChange={(event) => setFn(event.target.value)}/>
@@ -41,7 +40,6 @@ const Staff = () => {
                       <label/>Efternamn:             
                       <input
                       className="staff-input2"
-                      type="text"
                       value={ln}
                       placeholder="Efternamn"
                       onChange={(event) => setLn(event.target.value)}
@@ -51,7 +49,6 @@ const Staff = () => {
                       <label/>Email:             
                       <input
                       className="staff-input3"
-                      type="text"
                       value={email}
                       placeholder="Email"
                       onChange={(event) => setEmail(event.target.value)}
@@ -61,7 +58,6 @@ const Staff = () => {
                       <label/>Bankkontonummer:             
                       <input
                       className="staff-input4"
-                      type="text"
                       value={banknr}
                       placeholder="Bank-acc-number"
                       onChange={(event) => setBanknr(event.target.value)}
@@ -84,14 +80,22 @@ const Staff = () => {
                       <br/>
                       <button className="buttonstaffread"
                       onClick={()=>{
-                        get('/staff').then((response)=>console.log(response))
+                        get("/Staff",{
+                          id:counter,
+                          fn:fn,
+                          ln:ln,
+                          email:email,
+                          yrke:yrke,
+                          banknr:banknr,
+                        })
+                        
                       }}
                       >Read</button>
 
                       <br/>
                       <button className="buttonstaffadd"
                       onClick={()=>{
-                        post('/staff', {
+                        post('/Staff', {
                           id:counter,
                           fn:fn,
                           ln:ln,
@@ -99,9 +103,7 @@ const Staff = () => {
                           yrke:yrke,
                           banknr:banknr,
                         });
-                        setcounter(Date.now())
-
-                        .then((response)=>console.log(response))
+                        setcounter(Date.now());
                         get("/Staff").then((response) => setStaff(response.data));
                       }}
                       >Add</button>
@@ -109,21 +111,23 @@ const Staff = () => {
                       <br/>
                       <button className="buttonstaffUpdate"
                       onClick={()=>{
-                      put(`/staff/update/${id}`,{
-                        id:counter,
+                      put(`/Staff/${counter}`,{
+                          id:staff.counter,
                           fn:fn,
                           ln:ln,
                           email:email,
                           yrke:yrke,
                           banknr:banknr,
-                      }).then((response)=>console.log(response))
+                        }).then((response) => console.log(response));
+                        get("/Staff").then((response) => setStaff(response.data));
                       }}
                       >Update</button>
 
                       <br/>
                       <button className="buttonstaffdelete"
                       onClick={()=>{
-                        remove(`/Staff/:staffId${id}`)
+                        remove(`/Staff/${counter}`);
+                        get("/Staff").then((response) => setStaff(response.data));
                       }}
                       >Delete</button>
 
@@ -134,7 +138,7 @@ const Staff = () => {
                         <div className="testar">
                         <p/>test
                         </div>
-                  </form>
+                  </div>
                 <br/>
               </div>
             
@@ -145,7 +149,38 @@ const Staff = () => {
                 <br/> Följande information vill vi spara för all personal: 
                 <br/>Förnamn, Efternamn, Email, Bankkontonummer.
                 </div>
-        
+
+                
+
+                <div className="personallistavisa">
+                  <h4>Person</h4>
+                  <div>
+                    {staff.map(()=>{
+                      return (
+                        <div>
+                        <li key={staff.counter}>
+                          <p>
+                            id: {staff.counter}
+                          </p>
+                          <p>
+                         Namn: {staff.fn} {staff.ln}
+                          </p>
+                          <p>
+                         Epost {staff.email}
+                          </p>
+                          <p>
+                         Bank nummer {staff.banknr}
+                          </p>
+                          <p>
+                         Yrke {staff.yrke}
+                          </p>
+                        </li>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+      
     </div>
     
   );
