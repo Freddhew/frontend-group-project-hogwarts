@@ -110,7 +110,7 @@ const Staff = () => {
                       <br/>
                       <button className="buttonstaffUpdate"
                       onClick={()=>{
-                      put(`/staff/${counter}`,{
+                      put(`/staff/${id}`,{
                           id:staff.counter,
                           fn:fn,
                           ln:ln,
@@ -125,7 +125,7 @@ const Staff = () => {
                       <br/>
                       <button className="buttonstaffdelete"
                       onClick={()=>{
-                        remove(`/staff/${counter}`);
+                        remove(`/staff/${id}`);
                         get("/staff").then((response) => setStaff(response.data));
                       }}
                       >Delete</button>
