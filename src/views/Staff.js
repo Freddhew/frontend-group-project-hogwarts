@@ -132,12 +132,6 @@ const Staff = () => {
                       >Delete</button>
 
                       
-
-                      
-
-                        <div className="testar">
-                        <p/>test
-                        </div>
                   </div>
                 <br/>
               </div>
