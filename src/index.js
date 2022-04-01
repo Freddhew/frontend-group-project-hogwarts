@@ -8,7 +8,7 @@ import Footer from './components/footer/Footer';
 
 import App from "./App";
 
-import Education from "./views/Education.js";
+import Education from "./views/Educations";
 import Apply from "./views/Apply";
 import Courses from "./views/Courses";
 import Staff from "./views/Staff";
@@ -20,7 +20,7 @@ ReactDOM.render(
     <Navbar />
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/education" element={<Education />} />
+        <Route path="/educations" element={<Education />} />
         <Route path="/apply" element={<Apply />} />
         <Route path="/courses" element={<Courses />} />
         <Route path="/staff" element={<Staff />} />
