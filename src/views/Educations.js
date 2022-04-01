@@ -1,39 +1,33 @@
 import React from 'react'
-import 'src\views\css\EducationsStyles.css'
+import './css/EducationsStyles.css'
 
 const Educations = () => {
     return (
         <div className='educations'>
             <div className='card-container'>
                 <div className='card'>
-                    <h3>- Basic -</h3>
+                    <h3>- Subject -</h3>
                     <span className='bar'></span>
-                    <p className='btc'>1 BTC</p>
-                    <p>- 3 Days -</p>
-                    <p>- Views -</p>
-                    <p>- Featured -</p>
-                    <p>- Private Quarters -</p>
-                    <Link to='/contact' className='btn'>Submit</Link>
+                    <p>- Education Leader -</p>
+                    <p>- Prerequisite Courses -</p>
+                    <p>- Course Descriptions -</p>
+                    <button className='btn'>Submit</button>
                 </div>
                 <div className='card'>
-                    <h3>- Suite -</h3>
+                <h3>- Subject -</h3>
                     <span className='bar'></span>
-                    <p className='btc'>1 BTC</p>
-                    <p>- 3 Days -</p>
-                    <p>- Views -</p>
-                    <p>- Featured -</p>
-                    <p>- Private Quarters -</p>
-                    <Link to='/contact' className='btn'>Submit</Link>
+                    <p>- Education Leader -</p>
+                    <p>- Prerequisite Courses -</p>
+                    <p>- Course Descriptions -</p>
+                    <button className='btn'>Submit</button>
                 </div>
                 <div className='card'>
-                    <h3>- Executive -</h3>
+                <h3>- Subject -</h3>
                     <span className='bar'></span>
-                    <p className='btc'>1 BTC</p>
-                    <p>- 3 Days -</p>
-                    <p>- Views -</p>
-                    <p>- Featured -</p>
-                    <p>- Private Quarters -</p>
-                    <Link to='/contact' className='btn'>Submit</Link>
+                    <p>- Education Leader -</p>
+                    <p>- Prerequisite Courses -</p>
+                    <p>- Course Descriptions -</p>
+                    <button className='btn'>Submit</button>
                 </div>
             </div>
         </div>

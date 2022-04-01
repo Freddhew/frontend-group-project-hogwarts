@@ -13,6 +13,7 @@ import Apply from "./views/Apply";
 import Courses from "./views/Courses";
 import Staff from "./views/Staff";
 import Login from "./views/Login";
+import Educations from "./views/Educations";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -20,7 +21,7 @@ ReactDOM.render(
     <Navbar />
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/educations" element={<Education />} />
+        <Route path="/educations" element={<Educations />} />
         <Route path="/apply" element={<Apply />} />
         <Route path="/courses" element={<Courses />} />
         <Route path="/staff" element={<Staff />} />
