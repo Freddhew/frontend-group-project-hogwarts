@@ -164,16 +164,16 @@ const Staff = () => {
                             id: {staffs.id}
                           </p>
                           <p>
-                         Namn: {staffs.fn} {staffs.ln}
+                         Name: {staffs.fn} {staffs.ln}
                           </p>
                           <p>
-                         Epost {staffs.email}
+                         Email {staffs.email}
                           </p>
                           <p>
-                         Bank nummer {staffs.banknr}
+                         Bank number {staffs.banknr}
                           </p>
                           <p>
-                         Yrke {staffs.yrke}
+                         Proffesion {staffs.yrke}
                           </p>
                         </li>
                         </div>
