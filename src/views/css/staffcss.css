@@ -1,11 +1,12 @@
 .Staff{
     padding-top: 100px;
-    background-color: aqua;
+    background: url('../../assets/educations-hero.png') no-repeat center center/cover;
     text-align: center;
+    color: rgb(248, 248, 248);
 }
 
 .blackbox{
-    background-color: yellow;
+    background-color: rgba(243, 243, 243, 0.147);
     display: block;
     padding: 0px;
     margin-top: 10px;
@@ -13,14 +14,9 @@
 .two{
     text-align: start;
     color: white;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.435);
     display: block;
     padding: 10px;
-}
-
-.testar{
-    text-align:end;
-    padding-top: -150px;
 }
 
 .formstaff{
@@ -91,6 +87,7 @@
 
 .personallistavisa{
     list-style-type: none;
+    background-color: rgba(243, 243, 243, 0.27);
 }
 
 .listavisah1{

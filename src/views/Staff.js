@@ -22,7 +22,7 @@ const Staff = () => {
     <div className="Staff">
         <h1>Staff</h1>
           <p>
-              Just a paragraph
+              Here you sign the Teacher or the training leader
           </p>
               <div className="blackbox">
                   <div className="formstaff">
@@ -73,7 +73,7 @@ const Staff = () => {
                       > 
                       <option></option>
                       <option>Teacher</option>
-                      <option>Alternative</option>
+                      <option>Training leader</option>
                       </select>
                       <br/>
 
@@ -81,7 +81,7 @@ const Staff = () => {
                       <input
                       className="staff-input6"
                       value={id}
-                      placeholder="snickesnack ID"                      
+                      placeholder="School ID"                      
                       onChange={(event) => {
                         console.log(event.target.value);
                         SetId(event.target.value)
@@ -137,11 +137,14 @@ const Staff = () => {
               </div>
             
                 <div className="two">
-                En sida som hanterar personalen på skolan. 
-                <br/>Man ska kunna lägga till och ta bort lärare och utbildningsledare på denna sida
-                <br/>samt uppdatera information om en redan tillagd personal via APIet. 
-                <br/> Följande information vill vi spara för all personal: 
-                <br/>Förnamn, Efternamn, Email, Bankkontonummer.
+                <br/> A site that handles the personal at the school.
+                <br/> You will be able to Add, Update and remove the diffrent personal with the ID.
+                <br/> All is coming from the Api.
+                <br/> Following is possible to use by CRUD 
+                <br/> Firstname,Lastname,Email,Bank account, Proffesin And the ID. 
+                <br/> For any questions contact Admin of Staff
+                <br/> Admin: Olle T 
+                
                 </div>
 
                 
