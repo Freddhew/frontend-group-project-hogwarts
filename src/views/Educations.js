@@ -24,30 +24,35 @@ import {useState, useEffect } from 'react'
 
     return (
         <div className='educations'>
-            <div className='card-container'>
-                <div className='card selectors'>
-                    <p>Enter Course Information</p>
-                    <select>
-                        <option value="" disabled selected>Select your education</option>
-                        <option value="">Defence against the Dark Arts</option>
-                        <option value="">Potion Mastery</option>
-                        <option value="">Forsight</option>
-                    </select>
-                    <p>- Education Leader -</p>
-                    <select>
-                        <option value="" disabled selected>Select your educator</option>
-                        <option value=""></option>
-                    </select>
-                    <p>- Prerequisite Courses -</p>
-                    <select>
-                        <option value="" disabled selected>Select your education</option>
-                        <option value=""></option>
-                    </select>
-                    <p>- Course Descriptions -</p>
-                    <textarea>Please describe your program...</textarea>
-                    <button className='btn'>Submit</button>
+            <div className='education-list'>
+                <div>
+                    <h3>IS THIS WHAT YOU DESIRE?</h3>
                 </div>
             </div>
+                <div className='card-container'>
+                    <div className='card selectors'>
+                        <p>Enter Course Information</p>
+                        <select>
+                            <option value="" disabled selected>Select your education</option>
+                            <option value="">Defence against the Dark Arts</option>
+                            <option value="">Potion Mastery</option>
+                            <option value="">Forsight</option>
+                        </select>
+                        <p>- Education Leader -</p>
+                        <select>
+                            <option value="" disabled selected>Select your educator</option>
+                            <option value=""></option>
+                        </select>
+                        <p>- Prerequisite Courses -</p>
+                        <select>
+                            <option value="" disabled selected>Select your education</option>
+                            <option value=""></option>
+                        </select>
+                        <p>- Course Descriptions -</p>
+                        <textarea>Please describe your program...</textarea>
+                        <button className='btn'>Submit</button>
+                    </div>
+                </div>
         </div>
     )
 }

@@ -28,7 +28,7 @@ const Navbar = () => {
                         <div className="social-icons">
                             <FaFacebook className='icon' />
                             <FaInstagram className='icon' />
-                            {/* <GiCarWheel className='icon' /> */}
+                            <GiFairyWand className='icon' />
                         </div>
                     </div>
             </ul>
