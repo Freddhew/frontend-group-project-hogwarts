@@ -23,12 +23,12 @@ const Navbar = () => {
                     <li><a href='/'>Staff</a></li>
 
                     <div className='mobile-menu'>
-                        <button>Log in</button>
-                        <button>Apply</button>
+                        <button>Shop</button>
+                        <button>Account</button>
                         <div className="social-icons">
                             <FaFacebook className='icon' />
                             <FaInstagram className='icon' />
-                            <GiFairyWand className='icon' />
+                            {/* <GiCarWheel className='icon' /> */}
                         </div>
                     </div>
             </ul>
