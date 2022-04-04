@@ -36,6 +36,7 @@
 
 .hero .btn {
     margin: 1rem .2rem;
+    width: 15%;
 }
 
 @media screen and (max-width:640px) {

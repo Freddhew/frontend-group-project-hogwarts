@@ -14,11 +14,13 @@ import Courses from "./views/Courses";
 import Staff from "./views/Staff";
 import Login from "./views/Login";
 import Educations from "./views/Educations";
+import Header from "./components/header/Header";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
     <Navbar />
+    <Header />
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/educations" element={<Educations />} />

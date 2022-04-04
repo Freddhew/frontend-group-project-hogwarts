@@ -2,13 +2,13 @@ import React from 'react'
 import ReactPlayer from 'react-player'
 import './HeaderStyles.css'
 
-// import wandVideo from './src/assets/Header.webm'
+import wandVideo from './Wand.mp4'
 
 const Header = () => {
   return (
     <div className='hero'>
-        <video loop autoPlay muted id='video'>
-            <source src="./src/assets/Header.webm" type='video/webm' />
+        <video loop muted autoPlay id='video'>
+            <source src={wandVideo} type='video/mp4' />
         </video>
     <div className='content'>
         <h1>Hogwarts</h1>
