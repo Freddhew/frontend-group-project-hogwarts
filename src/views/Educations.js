@@ -33,7 +33,6 @@ import {useState, useEffect } from 'react'
                         <option value="">Potion Mastery</option>
                         <option value="">Forsight</option>
                     </select>
-                    <span className='bar'></span>
                     <p>- Education Leader -</p>
                     <select>
                         <option value="" disabled selected>Select your educator</option>
