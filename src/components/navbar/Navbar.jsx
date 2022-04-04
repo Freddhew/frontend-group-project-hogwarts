@@ -3,6 +3,9 @@ import { FaBars, FaFacebook, FaTimes, FaInstagram } from 'react-icons/fa'
 import { GiFairyWand } from 'react-icons/gi'
 import './NavbarStyles.css'
 import { Link } from "react-router-dom";
+import Courses from '../../views/Courses';
+import Staff from '../../views/Staff';
+import Education from '../../views/Educations';
 
 const Navbar = () => {
     const [nav, setNav] = useState(false)
@@ -17,11 +20,18 @@ const Navbar = () => {
     <div className='navbar'>
         <div className="container">
             <ul className={nav ? 'nav-menu active' : 'nav-menu' }>
-                    <li><a href='/'>Home</a></li>
-                    <li><a href='/'>Educations</a></li>
-                    <li><a href='/'>Courses</a></li>
-                    <li><a href='/'>Staff</a></li>
-
+            <li>
+                <Link to='/'>Home</Link>
+            </li>
+            <li>
+                <Link to='/Educations'>Educations</Link>
+            </li>
+            <li>
+                <Link to='/Courses'>Courses</Link>
+            </li>
+            <li>
+                <Link to='/Staff'>Staff</Link>
+            </li>
                     <div className='mobile-menu'>
                         <button>Shop</button>
                         <button>Account</button>

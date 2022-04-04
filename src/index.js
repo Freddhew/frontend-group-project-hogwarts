@@ -8,12 +8,11 @@ import Footer from './components/footer/Footer';
 
 import App from "./App";
 
-import Education from "./views/Educations";
+import Educations from "./views/Educations";
 import Apply from "./views/Apply";
 import Courses from "./views/Courses";
 import Staff from "./views/Staff";
 import Login from "./views/Login";
-import Educations from "./views/Educations";
 import Header from "./components/header/Header";
 
 ReactDOM.render(
