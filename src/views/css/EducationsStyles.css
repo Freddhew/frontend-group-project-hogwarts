@@ -20,6 +20,9 @@
 .card {
     text-align: center;
     padding: 1rem;
+    position: absolute;
+    top: 15%;
+    right: 10%;
 }
 
 .card:hover {
@@ -38,10 +41,11 @@
     display: block;
 }
 
-.card .btc {
-    font-size: 4rem;
-    font-weight: 600;
-    padding: 1rem;
+.selectors {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 1rem;
+    margin: 1rem auto;
 }
 
 .educations p {

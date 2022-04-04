@@ -17,7 +17,7 @@ import {useState, useEffect } from 'react'
         const [chooseDescription, setChooseDescription] = useState("");
       
         useEffect(() => {
-          get("/Education").then((response) => seteventLists(response.data));
+          get("/Educations").then((response) => seteventLists(response.data));
           get("/Courses").then((response) => setCourses(response.data));
           get("/Staff").then((response) => setLeaders(response.data));
         }, []);
@@ -25,12 +25,27 @@ import {useState, useEffect } from 'react'
     return (
         <div className='educations'>
             <div className='card-container'>
-                <div className='card'>
-                    <h3>- Subject -</h3>
+                <div className='card selectors'>
+                    <p>Enter Course Information</p>
+                    <select>
+                        <option value="" disabled selected>Select your education</option>
+                        <option value="">Defence against the Dark Arts</option>
+                        <option value="">Potion Mastery</option>
+                        <option value="">Forsight</option>
+                    </select>
                     <span className='bar'></span>
                     <p>- Education Leader -</p>
+                    <select>
+                        <option value="" disabled selected>Select your educator</option>
+                        <option value=""></option>
+                    </select>
                     <p>- Prerequisite Courses -</p>
+                    <select>
+                        <option value="" disabled selected>Select your education</option>
+                        <option value=""></option>
+                    </select>
                     <p>- Course Descriptions -</p>
+                    <textarea>Please describe your program...</textarea>
                     <button className='btn'>Submit</button>
                 </div>
             </div>
