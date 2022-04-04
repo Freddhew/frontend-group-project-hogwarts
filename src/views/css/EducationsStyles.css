@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+
+.educations {
+    width: 100%;
+    padding: 6rem 1rem;
+    background-color: #000;
+}
+
+.education-list {
+    width: 35%;
+    height: 80%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: #85F4FF solid 1px;
+    position: absolute;
+    left: 10%;
+}
+
+.education-list:hover {
+    background-color: #141414;
+}
+
+.education-list h3{
+    color: #eee;
+    font-family: 'Roboto Condensed', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+.card-container {
+    max-width: 1140px;
+    margin: auto;
+    display: grid;
+    grid-gap: 40px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.card-container .card {
+    border: 1px solid #85F4FF;
+    color: #85F4FF;
+}
+
+.card {
+    text-align: center;
+    padding: 1rem;
+    position: absolute;
+    top: 15%;
+    right: 10%;
+}
+
+.card:hover {
+    background-color: #141414;
+}
+
+.card h3 {
+    font-size: 1.4rem;
+    padding: 1rem;
+}
+
+.card .bar {
+    border-bottom: 1px solid #85F4FF;
+    width: 10%;
+    margin: 1.5rem auto;
+    display: block;
+}
+
+.selectors {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 1rem;
+    margin: 1rem auto;
+}
+
+.educations p {
+    color: #eee;
+    padding: 1rem 0;
+    font-size: 1.2rem;
+}
+
+.card .btn {
+    display: block;
+    width: 80%;
+    margin: 2rem auto;
+}
+
+@media screen and (max-width: 980px) {
+    .card-container {
+        max-width: 90%;
+        margin: auto;
+        grid-template-columns: 1fr;
+    }
+}

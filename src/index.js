@@ -8,19 +8,22 @@ import Footer from './components/footer/Footer';
 
 import App from "./App";
 
-import Education from "./views/Education.js";
+import Education from "./views/Educations";
 import Apply from "./views/Apply";
 import Courses from "./views/Courses";
 import Staff from "./views/Staff";
 import Login from "./views/Login";
+import Educations from "./views/Educations";
+import Header from "./components/header/Header";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
     <Navbar />
+    <Header />
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/education" element={<Education />} />
+        <Route path="/educations" element={<Educations />} />
         <Route path="/apply" element={<Apply />} />
         <Route path="/courses" element={<Courses />} />
         <Route path="/staff" element={<Staff />} />

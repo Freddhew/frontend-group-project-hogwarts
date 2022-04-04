@@ -16,13 +16,11 @@ const Navbar = () => {
   return (
     <div className='navbar'>
         <div className="container">
-        <ul className={nav ? 'nav-menu active' : 'nav-menu' }>
-                <li><Link className="nav-item" to="/">Home</Link></li>
-                <li><Link className="nav-item" to="/education">Education</Link></li>
-                <li><Link className="nav-item" to="/courses">Courses</Link></li>
-                <li><Link className="nav-item" to="/apply">Apply</Link></li>
-                <li><Link className="nav-item" to="/staff">Staff</Link></li>
-                <li><Link className="nav-item" to="/login" >Login</Link></li>
+            <ul className={nav ? 'nav-menu active' : 'nav-menu' }>
+                    <li><a href='/'>Home</a></li>
+                    <li><a href='/'>Educations</a></li>
+                    <li><a href='/'>Courses</a></li>
+                    <li><a href='/'>Staff</a></li>
 
                     <div className='mobile-menu'>
                         <button>Shop</button>
@@ -30,7 +28,7 @@ const Navbar = () => {
                         <div className="social-icons">
                             <FaFacebook className='icon' />
                             <FaInstagram className='icon' />
-                            {/* <GiCarWheel className='icon' /> */}
+                            <GiFairyWand className='icon' />
                         </div>
                     </div>
             </ul>

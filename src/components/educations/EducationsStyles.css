@@ -22,7 +22,7 @@
     justify-content: center;
     width: 100%;
     max-width: 600px;
-    margin-bottom: 4rem;
+    margin-bottom: 10rem;
 }
 
 @media screen and (max-width:540px) {
