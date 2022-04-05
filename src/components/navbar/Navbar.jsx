@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Courses from '../../views/Courses';
 import Staff from '../../views/Staff';
 import Education from '../../views/Educations';
+import Apply from '../../views/Apply'
 
 const Navbar = () => {
     const [nav, setNav] = useState(false)
@@ -49,7 +50,8 @@ const Navbar = () => {
 
             <ul className='nav-menu hide'>
                 <li><a href='/'>Log In</a></li>
-                <li><a href='/'>Apply</a></li>
+                <li><Link to='/Apply'>Apply</Link></li>
+                
             </ul>
 
             <div className="hamburger" onClick={handleNav}>

@@ -36,7 +36,7 @@ function Apply() {
   };
 
   return (
-    <div className="App">
+    <div className="Apply">
       <form onSubmit={handleSubmit}>
         <input className="input1"
           type="text"
