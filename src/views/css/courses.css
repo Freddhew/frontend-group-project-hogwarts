@@ -2,6 +2,7 @@
     z-index: 1;
     display: grid;
     grid-template-columns: repeat(15, 1fr);
+	grid-template-rows: auto;
 }
 
 .course-h2{
@@ -31,8 +32,14 @@
 }
 
 .course-object-settings{
-    grid-column: 11/15;
-    /* background-color: rgba(115, 0, 0, 0.437); */
+    grid-column: 11/18;
+    background-color: rgba(235, 13, 13, 0.822);
+	height: 10em;
+	grid-row-start: 0;
+}
+
+.display-settings-btn-div{
+	/* position: sticky; */
 }
 
 .course-object{
@@ -68,8 +75,8 @@
 }
 
 .course-add-new-course-btn {
-	box-shadow:inset 0px 34px 0px -15px #3bb33b;
-	background-color:#55a62d;
+	box-shadow:inset 0px 34px 0px -15px #b0b0b0;
+	background-color:#b6b6b6;
 	border:1px solid #241d13;
 	display:inline-block;
 	cursor:pointer;
@@ -79,13 +86,81 @@
 	font-weight:bold;
 	padding:9px 23px;
 	text-decoration:none;
-	text-shadow:0px -1px 0px #0da30d;
+	text-shadow:0px -1px 0px #919191;
+	width: 50%;
 }
 .course-add-new-course-btn:hover {
-	background-color:#25b83b;
-    color: #195823;
+	background-color:#e0e0e0;
+    color: #3b3b3b;
 }
 .course-add-new-course-btn:active {
 	position:relative;
 	top:1px;
+}
+ 
+.display-settings-btn {
+	box-shadow:inset 0px 1px 0px 0px #e184f3;
+	background:linear-gradient(to bottom, #c123de 5%, #a20dbd 100%);
+	background-color:#c123de;
+	border-radius:6px;
+	border:1px solid #a511c0;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size: 13px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #9b14b3;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+.display-settings-btn:hover {
+	background:linear-gradient(to bottom, #a20dbd 5%, #c123de 100%);
+	background-color:#a20dbd;
+}
+.display-settings-btn:active {
+	position:relative;
+	top:1px;
+}
+
+.course-input {
+	padding: 5px;
+	font-size: 16px;
+	border-width: 1px;
+	border-color: #CCCCCC;
+	background-color: #FFFFFF;
+	color: #000000;
+	border-style: solid;
+	border-radius: 0px;
+	box-shadow: 0px 0px 5px rgba(66,66,66,.75);
+	text-shadow: 0px 0px 5px rgba(66, 66, 66, 0.284);
+	width: 100%;
+}
+.course-input:focus {
+	outline:none;
+}
+
+.course-description-height{
+	height: 200px;
+	text-align: left;	
+	margin:0 auto;
+}
+
+.course-settings-header{
+	box-shadow:inset 0px 34px 0px -15px #97039c;
+	background-color:#ae00a5;
+	border:1px solid #241d13;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:9px 23px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #919191;
+	width: 100%;
+	text-align: center;
 }
