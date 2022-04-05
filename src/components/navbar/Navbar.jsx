@@ -46,7 +46,8 @@ const Navbar = () => {
 
             <ul className='nav-menu hide'>
                 <li><a href='/'>Log In</a></li>
-                <li><a href='/'>Apply</a></li>
+                <li><Link to='/Apply'>Apply</Link></li>
+                
             </ul>
 
             <div className="hamburger" onClick={handleNav}>
