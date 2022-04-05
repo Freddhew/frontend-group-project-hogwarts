@@ -27,6 +27,9 @@ const Navbar = () => {
                 <Link to='/Courses'>Courses</Link>
             </li>
             <li>
+                <Link to='/Apply'>Apply</Link>
+            </li>
+            <li>
                 <Link to='/Staff'>Staff</Link>
             </li>
                     <div className='mobile-menu'>
