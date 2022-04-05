@@ -71,8 +71,8 @@ const Staff = () => {
                       className="staff-input5"
                       onChange={(event) => setYrke(event.target.value)}
                       > 
-                      <option>Teacher</option>
-                      <option>Training leader</option>
+                      <option>Professor</option>
+                      <option>Prefect</option>
                       </select>
                       <br/>
 
@@ -154,7 +154,7 @@ const Staff = () => {
                 
 
                 <div className="personallistavisa">
-                  <h4 className="listavisah1">Person</h4>
+                  <h4 className="listavisah1">Enrolled Professors,Prefects at hogwarts</h4>
                   <div>
                     {staff.map((staffs)=>{
                      console.log(staffs.counter);
