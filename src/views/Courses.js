@@ -27,24 +27,38 @@ function Courses() {
 
 
   return (
-    <div id="course-main">
+    <div id="course-main" className="courses-bg">
 
       {/* Course List */}
       {/* Course List */}
       {/* Course List */}
       {/* Course List */}
       <div className="course-object-list">
-              <h2 className="course-h2">Course List</h2>
+              <h2 className="course-h2">Available Courses</h2>
               <ul>
                 {course.map((courses) => {
                   return (
                     <div className="course-object">
                       <li key={courses.courseId}>
-                        <p>ID: {courses.courseId}</p>
-                        <p>Course: {courses.courseName}</p>
-                        <p>Description: {courses.courseDescription}</p>
-                        <p>Teacher: {courses.teacher} </p>
-                        <p>Duration: {courses.courseLength}</p>
+                        
+                        <h3>COURSE &nbsp; {courses.courseName}</h3>
+                        <br/>
+                        <h3 className="course-h3">Description</h3>
+                        <p>{courses.courseDescription}</p>
+                        <br/>
+                        <h4>Teacher</h4>
+                        <h3 className="course-h3 course-teacher-highligt">{courses.teacher}</h3>
+                        <br/>
+                        <p>Duration {parseInt(courses.courseLength)} weeks</p>
+                        
+
+                        <p>
+                        <br/>
+                        <button className="course-remove-by-id-btn" 
+                                onClick={() => {
+                          remove(`/Courses/${courses.courseId}`);
+                          get("/Courses").then((response) => setCourse(response.data));
+                        }}>Remove Course with ID: {courses.courseId}</button></p>
                       </li>
                     </div>
                   );
@@ -85,22 +99,21 @@ function Courses() {
             <input value={courseDescription} placeholder="Course Description" onChange={(e) => setCourseDescription(e.target.value)}></input>
           </li>
           <li>
-            <button onClick={() => {
-                post("/Courses", {
-                  id: counter,
-                  courseName: courseName,
-                  teacher: chooseTeacher,
-                  courseLength: courseLength,
-                  courseDescription: courseDescription,
-                });
-                setCounter(Date.now());
-                get("/Courses").then((response) => setCourse(response.data));
-              }}>Create New Course</button>
-          </li>
-          <li>
             <input value={courseLength} placeholder="Course Duration" onChange={(e) => setCourseLength(e.target.value)}></input>
           </li>
           <li>
+            <button className="course-add-new-course-btn"
+                    onClick={() => {
+                      post("/Courses", {
+                        id: counter,
+                        courseName: courseName,
+                        teacher: chooseTeacher,
+                        courseLength: courseLength,
+                        courseDescription: courseDescription,
+                      });
+                      setCounter(Date.now());
+                      get("/Courses").then((response) => setCourse(response.data));
+              }}>Create New Course</button>
             <button onClick={() => {
                 put(`/Courses/${id}`, {
                     id: id,
@@ -112,31 +125,7 @@ function Courses() {
                 get("/Courses").then((response) => setCourse(response.data));
               }}>Update</button>
           </li>
-          <li>
-            <input value={id} placeholder="Course ID" onChange={(e) => {
-                console.log(e.target.value);
-                setId(e.target.value);
-              }}></input>
-          </li>
-          <li>
-            <button onClick={() => {
-              remove(`/Courses/${id}`);
-              get("/Courses").then((response) => setCourse(response.data));
-            }}>Remove Course by ID</button>
-          </li>
         </ul>
-            
-            
-            
-
-            
-            
-      
-            
-            
-
-            
-            
       </div>
     </div>
   );
