@@ -38,19 +38,19 @@ function Apply() {
   return (
     <div className="App">
       <form onSubmit={handleSubmit}>
-        <input
+        <input className="input1"
           type="text"
           value={firstName}
           placeholder="First Name"
           onChange={(e) => setFirstName(e.target.value)}
         />
-        <input
+        <input className="input1"
           type="text"
           value={lastName}
           placeholder="Last Name"
           onChange={(e) => setLastName(e.target.value)}
         />
-        <input
+        <input className="input1"
           type="text"
           value={email}
           placeholder="Email"
@@ -58,7 +58,7 @@ function Apply() {
         />
 
        
-        <select>
+        <select className="select1">
         {/* <input
           type="text"
           value={courseList}
@@ -74,9 +74,9 @@ function Apply() {
         </select> 
         
 
-        <button type="submit">Apply</button>
+        <button className="button1" type="submit">Apply</button>
 
-        <div className="message">{message ? <p>{message}</p> : null}</div>
+        <div className="message1">{message ? <p>{message}</p> : null}</div>
       </form>
     </div>
   );
