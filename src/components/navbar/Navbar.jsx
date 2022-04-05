@@ -3,9 +3,6 @@ import { FaBars, FaFacebook, FaTimes, FaInstagram } from 'react-icons/fa'
 import { GiFairyWand } from 'react-icons/gi'
 import './NavbarStyles.css'
 import { Link } from "react-router-dom";
-import Courses from '../../views/Courses';
-import Staff from '../../views/Staff';
-import Education from '../../views/Educations';
 
 const Navbar = () => {
     const [nav, setNav] = useState(false)
