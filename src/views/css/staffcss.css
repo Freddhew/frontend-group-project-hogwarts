@@ -1,12 +1,12 @@
 .Staff{
     padding-top: 100px;
-    background: url('../../assets/educations-hero.png') no-repeat center center/cover;
+    background: url('../../assets/dumbeloffice.jpeg') no-repeat center center/cover;
     text-align: center;
-    color: rgb(248, 248, 248);
+    color: rgba(248, 248, 248, 0.854);
 }
 
 .blackbox{
-    background-color: rgba(243, 243, 243, 0.147);
+    background-color: rgba(243, 243, 243, 0);
     display: block;
     padding: 0px;
     margin-top: 10px;
@@ -87,7 +87,7 @@
 
 .personallistavisa{
     list-style-type: none;
-    background-color: rgba(243, 243, 243, 0.27);
+    background-color: rgba(243, 243, 243, 0.104);
 }
 
 .listavisah1{

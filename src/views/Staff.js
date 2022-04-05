@@ -22,7 +22,7 @@ const Staff = () => {
     <div className="Staff">
         <h1>Staff</h1>
           <p>
-              Here you sign the Teacher or the training leader
+              Here you sign the Teacher or the Training leader at Dumbledore's Office
           </p>
               <div className="blackbox">
                   <div className="formstaff">
