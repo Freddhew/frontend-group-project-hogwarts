@@ -1,101 +1,91 @@
-.course-padding-top{
-    padding-top: 1em;
+#course-main{
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
 }
 
-.course-container{
-    background-color: rgba(209, 209, 209, 0.288);
-    margin-left: 20%;
-    margin-right: 20%;
+.course-h2{
+    padding-left:0.4em;
 }
 
-.course-input-management{
-    text-align: left;
-    padding: 2em;
+.course-h3{
+    font-size: 22px;
 }
 
-
-.course-input-field{
-    padding: 5px;
-    font-size: 16px;
-    border-width: 1px;
-    color: #000000;
-    border-style: solid;
-    border-radius: 0px;
-    box-shadow: 0px 0px 5px rgba(66,66,66,.75);
-    text-shadow: 0px 0px 5px rgba(66, 66, 66, 0.322);
-    width: 60%;
-    margin: 1em;
-}
-
-.course-input-field:focus {
-    outline:none;
-}
-
-.add-course-btn {
-	box-shadow:inset 0px 1px 0px 0px #ffffff;
-	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
-	border-radius:6px;
-	border:1px solid #dcdcdc;
-
-	cursor:pointer;
-	color:#666666;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:6px 24px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #ffffff;
-}
-.add-course-btn:hover {
-    background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
-}
-.add-course-btn:active {
-    position:relative;
-    top:1px;
+.course-teacher-highligt{
+    color:rgb(247, 7, 255)
 }
 
 .courses-bg{
-    z-index: -99999;
+    padding: 2em;
     width: 100%;
-    height: 100vh;
     background: url('../../assets/educations-hero.png') no-repeat center center/cover;
+    border-top: 14px ridge #7400a6;
+    border-radius: 14px 23px 0px 0px;
 }
 
-.courses-grid{
-    display: grid;
-    grid-template-columns: repeat(15, 1fr);
-    /* background-color: yellow; */
-    background: url('../../assets/educations-hero.png') no-repeat center center/cover;
+.course-object-list{
+    grid-column: 3/10;
+    /* background-color: rgba(115, 0, 0, 0.437); */
+    color: white;
 }
 
-.courses-container{
-    margin-top:60px;
-    padding: 3em;
-    background-color: #ffffff;
-    grid-column: 5/12;
+.course-object-settings{
+    grid-column: 11/15;
+    /* background-color: rgba(115, 0, 0, 0.437); */
 }
 
-.course-card{
-    background-color: red;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 50px 50px;
+.course-object{
+    padding: 1em;
+    background-color: rgba(71, 19, 73, 0.779);
+    margin: 1em;
+    border-right: 5px ridge #7400a6;
+    border-radius: 9px 40px 0px 0px;
 }
 
-.course-card-coloumn-1{
-    grid-column: 1/2;
+
+.course-remove-by-id-btn {
+	box-shadow:inset 0px 34px 0px -15px #b54b3a;
+	background-color:#a73f2d;
+	border:1px solid #241d13;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:9px 23px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #7a2a1d;
 }
-.course-card-coloumn-2{
-    grid-column: 2/3;
+.course-remove-by-id-btn:hover {
+	background-color:#d3331a;
+    color: rgb(255, 181, 120);
 }
-.course-card-coloumn-3{
-    grid-column: 3/4;
+.course-remove-by-id-btn:active {
+	position:relative;
+	top:1px;
 }
 
-.course-card-row-1{
-    grid-row: 1;
+.course-add-new-course-btn {
+	box-shadow:inset 0px 34px 0px -15px #3bb33b;
+	background-color:#55a62d;
+	border:1px solid #241d13;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:9px 23px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #0da30d;
 }
-
-.course-card-row-2{
-    grid-row: 2;
+.course-add-new-course-btn:hover {
+	background-color:#25b83b;
+    color: #195823;
+}
+.course-add-new-course-btn:active {
+	position:relative;
+	top:1px;
 }
