@@ -17,23 +17,26 @@ function Courses() {
   useEffect(() => {
     get("/Courses").then((response) => setCourse(response.data));
     get("/Staff").then((response) => setTeacher(response.data));
-    console.log(`Course: ${course}`);
+
+    // window.scrollTo(0, 0);
     scrollToSection();
     hideSettings(0);
-    setTimeout(() => { hideSettings(0); }, 250);
+    
+    setTimeout(() => { 
+      hideSettings(0); 
+    }, 400);
   }, []);
 
   let isDisplayingSettings = false;
 
   function scrollToSection(){
-    const viewPort = document.getElementById("course-main");
+    const viewPort = document.getElementById("header");
     viewPort.scrollIntoView({behavior: 'smooth'});
   }
   
   function hideSettings(time){
     let courseSettings = document.getElementsByClassName("course-settings")
     for (var i = 0; i < courseSettings.length; i++) {
-      console.log(courseSettings.item(i));
       slideUp(courseSettings.item(i), time);
     }
   }
@@ -41,7 +44,6 @@ function Courses() {
   function showSettings(time){
     let courseSettings = document.getElementsByClassName("course-settings")
     for (var i = 0; i < courseSettings.length; i++) {
-      console.log(courseSettings.item(i));
       slideDown(courseSettings.item(i), time);
     }
   }
@@ -65,7 +67,7 @@ function Courses() {
       {/* Course List */}
       {/* Course List */}
       <div className="course-object-list">
-              <h2 className="course-h2">Available Courses</h2>
+              <h2 id="header" className="course-h2">Available Courses</h2>
               <ul>
                 {course.map((courses) => {
                   return (
