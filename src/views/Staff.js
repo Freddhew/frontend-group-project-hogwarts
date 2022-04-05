@@ -66,12 +66,11 @@ const Staff = () => {
                       
                       <br/>
                       <p/>Proffesion
-                      <select 
-                      className="staff-input5"
+                      <select
                       value={yrke}
+                      className="staff-input5"
                       onChange={(event) => setYrke(event.target.value)}
                       > 
-                      <option></option>
                       <option>Teacher</option>
                       <option>Training leader</option>
                       </select>
@@ -80,9 +79,14 @@ const Staff = () => {
                       <label/>ID:             
                       <input
                       className="staff-input6"
-                      value={id}
                       placeholder="School ID"                      
                       onChange={(event) => {
+                        const staffsa = staff.find(i => i.id == event.target.value)
+                        setFn(staffsa.fn)
+                        setLn(staffsa.ln)
+                        setEmail(staffsa.email)
+                        setBanknr(staffsa.banknr)
+                        setYrke(staffsa.yrke)
                         console.log(event.target.value);
                         SetId(event.target.value)
                       }}
