@@ -1,6 +1,21 @@
-# Getting Started with Create React App
+School project: 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+a - Staff, some backend Olle
+b - Courses Fredrik 
+c - Educations Mohammad
+d - Apply Gt2020
+
+
+Description 
+A - En sida som hanterar personalen på skolan. Man ska kunna lägga till och ta bort lärare och utbildningsledare på denna sida samt uppdatera information om en redan tillagd personal via APIet. Följande information vill vi spara för all personal: Förnamn, Efternamn, Email, Bankkontonummer.
+
+B - En sida där man ska kunna skapa upp en ny kurs. Kursen ska ha en ansvarig lärare kopplad till sig, och listan över lärare man har att välja på ska ska hämtas från APIet. Följande information vill vi spara för en kurs: Namn, Ansvarig lärare, Längd (i veckor), Kursbeskrivning.
+
+C - En sida som hanterar skolans utbildningar. Varje utbildning har en utbildningsledare kopplad till sig, samt en eller flera kurser. Som ovan ska tillgängliga utbildningsledare samt tillgängliga kurser komma från APIet. Följande information vill vi spara för en utbildning: Namn, Utbildningsledare, Beskrivning, Kurser som ingår.
+
+
+D - En sida där man kan ansöka till en utbildning. Sidan ska lista tillgängliga utbildningar och ha ett sätt att skicka in en ansökan. Följande information vill vi spara för en ansökan: Förnamn, Efternamn, Email, Utbildning som sökes.
+
 
 ## Available Scripts
 
