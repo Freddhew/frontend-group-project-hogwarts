@@ -58,8 +58,8 @@
 .buttonstaffadd{
     text-align: center;
     margin-left: 2px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 28px;
+    padding-right: 28px;
 }
 
 .buttonstaffdelete{
@@ -73,7 +73,7 @@
 .buttonstaffUpdate{
     text-align: center;
     margin-left: 2px;
-    padding-left: 20px;
+    padding-left: 16px;
     padding-right: 20px;
 }
 
