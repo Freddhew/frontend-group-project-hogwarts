@@ -13,10 +13,11 @@ function Courses() {
   const [courseDescription, setCourseDescription] = useState("");
   const [courseLength, setCourseLength] = useState("");
   const [course, setCourse] = useState([]);
+  const [staff, setStaff] = useState([]);
 
   useEffect(() => {
     get("/Courses").then((response) => setCourse(response.data));
-    get("/Staff").then((response) => setTeacher(response.data));
+    get("/Staff").then((response) => setStaff(response.data));
 
     // window.scrollTo(0, 0);
     scrollToSection();
@@ -128,14 +129,12 @@ function Courses() {
                       onChange={(event) => setChooseTeacher(event.target.value)}>
               <option value="" 
                       selected hidden>Select Teacher</option>
-              {teacher.map((teachers) => {
-                if (teachers.profession === "teacher") {
+              {staff.map((staffs) => {
                   return (
-                    <option key={teachers.id}>
-                      {`${teachers.firstName} ${teachers.lastName}  `}
+                    <option key={staffs.id}>
+                      {`${staffs.fn} ${staffs.ln}  `}
                     </option>
                   );
-                }
               })}
             </select>
           </li>
