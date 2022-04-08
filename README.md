@@ -1,9 +1,9 @@
 School project: 
 
-a - Staff, some backend Olle
-b - Courses Fredrik 
-c - Educations Mohammad
-d - Apply Gt2020
+a - Staff, some backend Olle (Nraxi)
+b - Courses Fredrik (Freddhew)
+c - Educations Mohammad Arefi (Mo Arefi)
+d - Apply Godstime Nwankwo (GTnwa2020) 
 
 
 Description 
