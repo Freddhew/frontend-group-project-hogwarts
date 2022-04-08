@@ -22,7 +22,7 @@ const Staff = () => {
     <div className="Staff">
         <h1>Staff</h1>
           <p>
-              Here you sign the Teacher or the training leader
+              Here you sign the Professors or the Prefects at Dumbledore's Office
           </p>
               <div className="blackbox">
                   <div className="formstaff">
@@ -66,24 +66,31 @@ const Staff = () => {
                       
                       <br/>
                       <p/>Proffesion
-                      <select 
-                      className="staff-input5"
+                      <select
                       value={yrke}
-                      onChange={(event) => setYrke(event.target.value)}
+                      className="staff-input5"
+                      onChange={(event) => {                        
+                        setYrke(event.target.value)
+                        console.log(event)}}
+                      
                       > 
-                      <option></option>
-                      <option>Teacher</option>
-                      <option>Training leader</option>
+                      
+                      <option >Professor</option>
+                      <option >Prefect</option>
                       </select>
                       <br/>
 
                       <label/>ID:             
                       <input
                       className="staff-input6"
-                      value={id}
                       placeholder="School ID"                      
                       onChange={(event) => {
-                        console.log(event.target.value);
+                        const staffsa = staff.find(i => i.id == event.target.value)
+                        setFn(staffsa.fn)
+                        setLn(staffsa.ln)
+                        setEmail(staffsa.email)
+                        setBanknr(staffsa.banknr)
+                        setYrke(staffsa.yrke)
                         SetId(event.target.value)
                       }}
                       /> 
@@ -111,6 +118,7 @@ const Staff = () => {
                       <br/>
                       <button className="buttonstaffUpdate"
                       onClick={()=>{
+                        console.log("Uppdated")
                       put(`/staff/${id}`,{
                           id:staff.counter,
                           fn:fn,
@@ -126,6 +134,7 @@ const Staff = () => {
                       <br/>
                       <button className="buttonstaffdelete"
                       onClick={()=>{
+                        console.log("one list iteam has been deleted")
                         remove(`/staff/${id}`);
                         get("/staff").then((response) => setStaff(response.data));
                       }}
@@ -150,13 +159,13 @@ const Staff = () => {
                 
 
                 <div className="personallistavisa">
-                  <h4 className="listavisah1">Person</h4>
+                  <h4 className="listavisah1">Enrolled Professors,Prefects at hogwarts</h4>
                   <div>
                     {staff.map((staffs)=>{
-                     console.log(staffs.counter);
+                     console.log("list is rendred")
                      return (
-                        <div className="listavisasteg">
-                        <li key={staffs.id}>
+                        <div className="listavisasteg" key={staffs.id}>
+                        <li >
                           <p className="steg1">
                             id: {staffs.id}
                           </p>
@@ -164,13 +173,13 @@ const Staff = () => {
                          Name: {staffs.fn} {staffs.ln}
                           </p>
                           <p>
-                         Email {staffs.email}
+                         Email: {staffs.email}
                           </p>
                           <p>
-                         Bank number {staffs.banknr}
+                         Bank number: {staffs.banknr}
                           </p>
                           <p>
-                         Proffesion {staffs.yrke}
+                         Proffesion: {staffs.yrke}
                           </p>
                         </li>
                         </div>

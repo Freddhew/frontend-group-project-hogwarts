@@ -3,13 +3,14 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -1;
+    z-index: -999;
 }
 
 .hero {
     height: 100vh;
     width: 100%;
     object-fit: contain;
+    z-index: -1;
 }
 
 .hero .content {
@@ -19,11 +20,13 @@
     width: 100%;
     height: 100%;
     top: 40vh;
+    z-index: -1;
 }
 
 .hero .content h1 {
     font-size: 4rem;
     color: #fff;
+    z-index: -1;
 }
 
 .hero p {
@@ -32,12 +35,14 @@
     text-transform: uppercase;
     margin-bottom: 1.6rem;
     color: #fff;
+    z-index: -1;
 }
 
 .hero .btn {
     margin: 1rem .2rem;
     width: 15%;
     font-weight: lighter;
+    z-index: -1;
 }
 
 @media screen and (max-width:640px) {
