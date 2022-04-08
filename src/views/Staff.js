@@ -69,10 +69,14 @@ const Staff = () => {
                       <select
                       value={yrke}
                       className="staff-input5"
-                      onChange={(event) => setYrke(event.target.value)}
+                      onChange={(event) => {                        
+                        setYrke(event.target.value)
+                        console.log(event)}}
+                      
                       > 
-                      <option>Professor</option>
-                      <option>Prefect</option>
+                      
+                      <option >Professor</option>
+                      <option >Prefect</option>
                       </select>
                       <br/>
 
@@ -87,7 +91,6 @@ const Staff = () => {
                         setEmail(staffsa.email)
                         setBanknr(staffsa.banknr)
                         setYrke(staffsa.yrke)
-                        console.log(event.target.value);
                         SetId(event.target.value)
                       }}
                       /> 
@@ -115,6 +118,7 @@ const Staff = () => {
                       <br/>
                       <button className="buttonstaffUpdate"
                       onClick={()=>{
+                        console.log("Uppdated")
                       put(`/staff/${id}`,{
                           id:staff.counter,
                           fn:fn,
@@ -130,6 +134,7 @@ const Staff = () => {
                       <br/>
                       <button className="buttonstaffdelete"
                       onClick={()=>{
+                        console.log("one list iteam has been deleted")
                         remove(`/staff/${id}`);
                         get("/staff").then((response) => setStaff(response.data));
                       }}
@@ -157,7 +162,7 @@ const Staff = () => {
                   <h4 className="listavisah1">Enrolled Professors,Prefects at hogwarts</h4>
                   <div>
                     {staff.map((staffs)=>{
-                     console.log(staffs.counter);
+                     console.log("list is rendred")
                      return (
                         <div className="listavisasteg" key={staffs.id}>
                         <li >
@@ -168,13 +173,13 @@ const Staff = () => {
                          Name: {staffs.fn} {staffs.ln}
                           </p>
                           <p>
-                         Email {staffs.email}
+                         Email: {staffs.email}
                           </p>
                           <p>
-                         Bank number {staffs.banknr}
+                         Bank number: {staffs.banknr}
                           </p>
                           <p>
-                         Proffesion {staffs.yrke}
+                         Proffesion: {staffs.yrke}
                           </p>
                         </li>
                         </div>
