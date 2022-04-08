@@ -19,6 +19,11 @@ D - En sida där man kan ansöka till en utbildning. Sidan ska lista tillgängli
 
 ## Available Scripts
 
+For Starting server go in to right directory and typ "node server"
+Server will start at port 5000. 
+
+React will start at port 3000. 
+
 In the project directory, you can run:
 
 ### `npm start`
