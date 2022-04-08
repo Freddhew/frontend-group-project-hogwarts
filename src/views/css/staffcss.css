@@ -30,29 +30,35 @@
     margin-top: 20px;
     margin-left: 68px;
     margin-bottom: 3px;
+    width: 14%;
 }
 
 .staff-input2{
     margin-left: 70px;
     margin-bottom: 3px;
+    width: 14%;
 }
 
 .staff-input3{
+    width: 14%;
     margin-left: 98px;
     margin-bottom: 3px;
 }
 
 .staff-input4{
+    width: 14%;
     margin-left: 47px;
     margin-bottom: 3px;
 }
 
 .staff-input5{
+    width: 14%;
     margin-left: 70px;
     padding-right: 58px;
     margin-bottom: 3px;
 }
 .staff-input6{
+    width: 14%;
     margin-left: 120px;
 }
 .buttonstaffadd{
