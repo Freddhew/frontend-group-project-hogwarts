@@ -39,11 +39,14 @@
 }
 
 .hero .btn {
+    justify-content: center;
     margin: 1rem .2rem;
-    width: 15%;
+    width: 100%;
+    max-width: 150px;
     font-weight: lighter;
     z-index: -1;
 }
+
 
 @media screen and (max-width:640px) {
     .content h1 {
