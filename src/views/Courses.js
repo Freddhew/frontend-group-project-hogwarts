@@ -7,11 +7,10 @@ import "./css/courses.css";
 function Courses() {
   const [id, setId] = useState("");
   const [counter, setCounter] = useState(Date.now());
-  const [teacher, setTeacher] = useState([]);
   const [selectTeacher, setSelectTeacher] = useState("");
   const [courseName, setCourseName] = useState("");
   const [courseDescription, setCourseDescription] = useState("");
-  const [courseLength, setCourseLength] = useState("");
+  const [courseDuration, setCourseDuration] = useState("");
   const [course, setCourse] = useState([]);
   const [staff, setStaff] = useState([]);
 
@@ -19,7 +18,6 @@ function Courses() {
     get("/Courses").then((response) => setCourse(response.data));
     get("/Staff").then((response) => setStaff(response.data));
 
-    // window.scrollTo(0, 0);
     scrollToSection();
     hideSettings(0);
     
@@ -84,7 +82,7 @@ function Courses() {
                         <h4>Teacher</h4>
                         <h3 className="course-h3 course-teacher-highligt">{courses.teacher}</h3>
                         <br/>
-                        <p>Duration {parseInt(courses.courseLength)} weeks</p>
+                        <p>Duration {parseInt(courses.courseDuration)} week(s)</p>
                         
 
                         <p>
@@ -143,7 +141,7 @@ function Courses() {
             <input className="course-input course-description-height" value={courseDescription} placeholder="Course Description" onChange={(e) => setCourseDescription(e.target.value)}></input>
           </li>
           <li>
-            <input className="course-input" value={courseLength} placeholder="Course Duration (Weeks)" onChange={(e) => setCourseLength(e.target.value)}></input>
+            <input className="course-input" value={courseDuration} placeholder="Course Duration (Weeks)" onChange={(e) => setCourseDuration(e.target.value)}></input>
           </li>
           <li>
             <button className="course-add-new-course-btn"
@@ -152,7 +150,7 @@ function Courses() {
                         id: counter,
                         courseName: courseName,
                         teacher: selectTeacher,
-                        courseLength: courseLength,
+                        courseDuration: courseDuration,
                         courseDescription: courseDescription,
                       });
                       setCounter(Date.now());
@@ -164,7 +162,7 @@ function Courses() {
                     id: id,
                     courseName: courseName,
                     teacher: selectTeacher,
-                    courseLength: courseLength,
+                    courseDuration: courseDuration,
                     courseDescription: courseDescription,
                 }).then((response) => console.log(response));
                 get("/Courses").then((response) => setCourse(response.data));
@@ -176,10 +174,10 @@ function Courses() {
             placeholder="Course ID"
             onChange={(e) => {
               const coursesa = course.find(i => i.id == e.target.value)
-              // Not getting this to work :( 
+              // Not getting this to work :( maybe next time
               // setCourseName(coursesa.coursename)
               // setTeacher(coursesa.teacher)
-              // setCourseLength(coursesa.courseLength)
+              // setCourseDuration(coursesa.courseDuration)
               // setCourseDescription(coursesa.courseDescription)
               setId(e.target.value);
             }}
