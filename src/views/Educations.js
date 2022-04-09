@@ -24,14 +24,48 @@ import {useState, useEffect } from 'react'
 
     return (
         <div className='educations'>
+        {/* "Pop-up list" */}
             <div className='education-list'>
                 <div>
-                    <h3>IS THIS WHAT YOU DESIRE?</h3>
+                    <h3>Your magical journey:</h3>
+                        <div>
+                            <ul>
+                                {eventLists.map((eventList) => {
+                                    return (
+                                        <div>
+                                            <li className='educationTitle' key={eventList.course}>
+                                                {props.authorized ? (
+                                                    <p>
+                                                        Education Title: {eventList.course}
+                                                    </p>
+                                                ) : null}
+                                                    <p>
+                                                        Leader: {eventList.leader}
+                                                    </p>
+                                                    <p>
+                                                        Prerequisite Courses: {eventList.prerequisite}
+                                                    </p>
+                                                    <p>
+                                                        Description: {eventList.description}
+                                                    </p>
+                                            </li>
+                                        </div>
+                                    );
+                                
+                                })}
+                            </ul>
+                        </div>
                 </div>
             </div>
+
+
+
+
+
+
                 <div className='card-container'>
                     <div className='card selectors'>
-                        <p>Enter Course Information</p>
+                        <p>Enter Education Information</p>
                         <select>
                             <option value="" disabled selected>Select your education</option>
                             <option value="">Defence against the Dark Arts</option>
@@ -40,12 +74,12 @@ import {useState, useEffect } from 'react'
                         </select>
                         <p>- Education Leader -</p>
                         <select>
-                            <option value="" disabled selected>Select your educator</option>
+                            <option value="" disabled selected>Select your professor</option>
                             <option value=""></option>
                         </select>
                         <p>- Prerequisite Courses -</p>
                         <select>
-                            <option value="" disabled selected>Select your education</option>
+                            <option value="" disabled selected>Select a course</option>
                             <option value=""></option>
                         </select>
                         <p>- Course Descriptions -</p>
