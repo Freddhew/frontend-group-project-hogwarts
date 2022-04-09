@@ -99,9 +99,23 @@ import {useState, useEffect } from 'react'
                             })} 
                         </select>
 
-                        <p>- Course Descriptions -</p>
-                        <textarea>Please describe your program...</textarea>
-                        <button className='btn'>Submit</button>
+                        <p>- Education Descriptions -</p>
+                        <textarea value={chooseDescription} onChange={(event) => setChooseDescription(event.target.value)}>Share your thoughts with us...</textarea>
+                        <button className='btn' onClick={() => {
+                    post("/Education", {
+                        id: newId,
+                        Leader: chooseLeader,
+                        Title: chooseEvent,
+                        Prerequisite: chooseCourse,
+                        Description: chooseDescription,
+                        })
+                        setNewId(Date.now());
+                        get("/Education").then((response) =>
+                        seteventLists(response.data)
+                        );
+                        get("/Courses").then((response) => setCourses(response.data));
+                        get("/Staff").then((response) => setLeaders(response.data));
+                        }}>Submit</button>
                     </div>
                 </div>
         </div>
