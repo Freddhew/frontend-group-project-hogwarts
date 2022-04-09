@@ -33,17 +33,17 @@ import {useState, useEffect } from 'react'
                                 {eventLists.map((eventList) => {
                                     return (
                                         <div>
-                                            <li className='educationTitle' key={eventList.course}>
+                                            <li className='educationTitle' key={eventList.id}>
                                                 {props.authorized ? (
                                                     <p>
-                                                        Education Title: {eventList.course}
+                                                        Title: {eventList.title}
                                                     </p>
                                                 ) : null}
                                                     <p>
                                                         Leader: {eventList.leader}
                                                     </p>
                                                     <p>
-                                                        Prerequisite Courses: {eventList.prerequisite}
+                                                        Prerequisite: {eventList.prerequisite}
                                                     </p>
                                                     <p>
                                                         Description: {eventList.description}
@@ -58,30 +58,47 @@ import {useState, useEffect } from 'react'
                 </div>
             </div>
 
-
-
-
-
-
                 <div className='card-container'>
                     <div className='card selectors'>
-                        <p>Enter Education Information</p>
-                        <select>
+                        <h3>Enter Education Information</h3>
+                        <p>- Education -</p>
+                        <select className='selection' value={eventLists.id} onChange={(event) => setId(event.target.value)}>
                             <option value="" disabled selected>Select your education</option>
-                            <option value="">Defence against the Dark Arts</option>
-                            <option value="">Potion Mastery</option>
-                            <option value="">Forsight</option>
+                            {eventLists.map((eventList) => {
+                                return (
+                            <option className="option" key={eventList.id}>
+                                {`${eventList.id}  `}
+                            </option>
+                                );
+                            })}
                         </select>
+
                         <p>- Education Leader -</p>
-                        <select>
-                            <option value="" disabled selected>Select your professor</option>
-                            <option value=""></option>
+                        <select className='selection' value={chooseLeader} onChange={(event) => setChooseLeader(event.target.value)}>
+                            <option value="" disabled selected>Choose your professor</option>
+                            {leaders.map((leader) => {
+                            if (leader.profession === "Utbildningsledare") {
+                                return (
+                            <option className="selection" key={leaders.id}>
+                                    {`${leader.firstName} ${leader.lastName} `}
+                            </option>
+                                );
+                            }
+                            })} 
                         </select>
+
                         <p>- Prerequisite Courses -</p>
-                        <select>
-                            <option value="" disabled selected>Select a course</option>
-                            <option value=""></option>
+                        <select className='selection' value={chooseCourse} onChange={(event) => setChooseCourse(event.target.value)}>
+                            <option value="" disabled selected>Choose a course</option>
+                            {courses.map((course) => {
+                            return (
+                            <option className="option" key={course.id}>
+                            {` ${course.courseName}`}
+                            </option>
+                            );
+                            })} 
                         </select>
+
                         <p>- Course Descriptions -</p>
                         <textarea>Please describe your program...</textarea>
                         <button className='btn'>Submit</button>
