@@ -8,7 +8,7 @@ function Courses() {
   const [id, setId] = useState("");
   const [counter, setCounter] = useState(Date.now());
   const [teacher, setTeacher] = useState([]);
-  const [chooseTeacher, setChooseTeacher] = useState("");
+  const [selectTeacher, setSelectTeacher] = useState("");
   const [courseName, setCourseName] = useState("");
   const [courseDescription, setCourseDescription] = useState("");
   const [courseLength, setCourseLength] = useState("");
@@ -59,6 +59,7 @@ function Courses() {
     }
   }
 
+  const courseDisplayList = course.map(item => item).reverse();
 
   return (
     <div id="course-main" className="courses-bg">
@@ -70,7 +71,7 @@ function Courses() {
       <div className="course-object-list">
               <h2 id="header" className="course-h2">Available Courses</h2>
               <ul>
-                {course.map((courses) => {
+                {courseDisplayList.map((courses) => {
                   return (
                     <div className="course-object">
                       <li key={courses.courseId}>
@@ -125,8 +126,8 @@ function Courses() {
           </li>
           <li>
             <select className='course-input' 
-                      value={chooseTeacher} 
-                      onChange={(event) => setChooseTeacher(event.target.value)}>
+                      value={selectTeacher} 
+                      onChange={(event) => setSelectTeacher(event.target.value)}>
               <option value="" 
                       selected hidden>Select Teacher</option>
               {staff.map((staffs) => {
@@ -150,7 +151,7 @@ function Courses() {
                       post("/Courses", {
                         id: counter,
                         courseName: courseName,
-                        teacher: chooseTeacher,
+                        teacher: selectTeacher,
                         courseLength: courseLength,
                         courseDescription: courseDescription,
                       });
@@ -162,13 +163,27 @@ function Courses() {
                 put(`/Courses/${id}`, {
                     id: id,
                     courseName: courseName,
-                    teacher: chooseTeacher,
+                    teacher: selectTeacher,
                     courseLength: courseLength,
                     courseDescription: courseDescription,
                 }).then((response) => console.log(response));
                 get("/Courses").then((response) => setCourse(response.data));
-              }}>Update</button>
+              }}>Update by ID</button>
           </li>
+          <input
+            value={id}
+            className="course-input"
+            placeholder="Course ID"
+            onChange={(e) => {
+              const coursesa = course.find(i => i.id == e.target.value)
+              // Not getting this to work :( 
+              // setCourseName(coursesa.coursename)
+              // setTeacher(coursesa.teacher)
+              // setCourseLength(coursesa.courseLength)
+              // setCourseDescription(coursesa.courseDescription)
+              setId(e.target.value);
+            }}
+          ></input>
         </ul>
       </div>
     </div>
