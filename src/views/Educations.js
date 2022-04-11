@@ -83,6 +83,20 @@ return (
                 })} 
             </select>
 
+            {/* <select className='course-input' 
+                      value={selectTeacher} 
+                      onChange={(event) => setSelectTeacher(event.target.value)}>
+              <option value="" 
+                      selected hidden>Select Teacher</option>
+              {staff.map((staffs) => {
+                  return (
+                    <option key={staffs.id}>
+                      {`${staffs.fn} ${staffs.ln}  `}
+                    </option>
+                  );
+              })}
+            </select> */}
+
             <p>- Prerequisite Courses -</p>
             <select className='selection' value={chooseCourse} onChange={(event) => setChooseCourse(event.target.value)}>
                 <option value="" disabled selected>Choose a course</option>
