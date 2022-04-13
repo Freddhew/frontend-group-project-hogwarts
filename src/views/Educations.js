@@ -1,63 +1,71 @@
 import React from 'react'
 import './css/EducationsStyles.css'
-import { get, post, put, erase } from '../utility/fetchUtility.js'
+import { get, post } from '../utility/fetchUtility.js'
 import {useState, useEffect } from 'react'
 
 function Educations(props) {
 
+    const [counter, setcounter] = useState(Date.now());
     const [courses, setCourses] = useState([]);
-    const [eventLists, seteventLists] = useState([]);
+    const [eventLists, setEventLists] = useState([]);
     const [chooseCourse, setChooseCourse] = useState("");
-    const [chooseTitle, setChooseTitle] = useState("");
     const [selectTeacher, setSelectTeacher] = useState("");
-    const [chooseDescription, setChooseDescription] = useState("");
+    const [selectHouse, setSelectHouse] = useState("");
 
 useEffect(() => {
-    get("/Educations").then((response) => seteventLists(response.data));
+    get("/Educations").then((response) => setEventLists(response.data));
     get("/Courses").then((response) => setCourses(response.data));
     get("/Staff").then((response) => selectTeacher(response.data));
 }, []);
 
 return (
-    <div className='educations'>
-    {/* "Pop-up list" */}
-    <div className='education-list'>
+<div className='educations'>
+<div className='education-list'>
+    <div>
+    <h3>Your Magical Journey</h3>
+
         <div>
-            <h3>Your Magical Journey</h3>
+        <ul>
+            {eventLists.map((eventList) => {
+                console.log(eventList)
+            return (
                 <div>
-                    <ul>
-                        {eventLists.map((eventList) => {
-                            return (
-                                    <div>
-                                        <li className='educationTitle'>
-                                            {props.authorized ? (
-                                                <p>
-                                                    Title: {eventList.title}
-                                                </p>
-                                            ) : null}
-                                                <p>
-                                                    Leader: {eventList.leader}
-                                                </p>
-                                                <p>
-                                                    Prerequisite: {eventList.prerequisite}
-                                                </p>
-                                                <p>
-                                                    Description: {eventList.description}
-                                                </p>
-                                        </li>
-                                    </div>
-                            );
-                        })}
-                    </ul>
+                <li className='educationTitle'>
+                    {props.authorized ? (
+                        <p>
+                            Course: {eventList.chooseCourse}
+                        </p>
+                        ) : null}
+                        <p>
+                            Professor: {eventList.selectTeacher}
+                        </p>
+                        <p>
+                            House: {eventList.selectHouse}
+                        </p>
+                        {/* <p>
+                            Duration: {eventList.duration}
+                        </p>
+                        <p>
+                            Description: {eventList.description}
+                        </p> */}
+                </li>
                 </div>
-            </div>
+            );
+            })}
+        </ul>
+        </div>
+    );
+[]);
     </div>
+</div>
 
     <div className='card-container'>
         <div className='card selectors'>
+
             <h3>Enter Education Information</h3>
             <p>- Select Your House -</p>
-            <select className='selection'>
+            <select className='selection' value={selectHouse}
+                    onChange={(event) => setSelectHouse(event.target.value)}>
                 <option value="" disabled selected>Select Your House</option>
                 <option>Gryffindor</option>
                 <option>Hufflepuff</option>
@@ -80,7 +88,7 @@ return (
             })}
             </select>
 
-            <p>- Prerequisite Courses -</p>
+            <p>- Courses -</p>
             <select className='selection' value={chooseCourse} onChange={(event) => setChooseCourse(event.target.value)}>
                 <option value="" disabled selected>Choose a Course</option>
                 {courses.map((course) => {
@@ -95,16 +103,16 @@ return (
             <p>- Your Comments -</p>
             <textarea placeholder='Share your thoughts with us...'></textarea>
             
-            <button className='btn' onClick={() => {
-            post("/Education", {
-            Leader: selectTeacher,
-            Title: chooseTitle,
-            Prerequisite: chooseCourse,
-            Description: chooseDescription,
-            })
-            get("/Education").then((response) =>
-            seteventLists(response.data)
-            );
+            <button className='btn' onClick={()=>{
+                        post("/Educations", {
+                        course:chooseCourse,
+                        professor:selectTeacher,
+                        house:selectHouse,
+                        // duration:duration,
+                        // description:description,
+                        });
+                        setcounter(Date.now());
+            get("/Educations").then((response) => setEventLists(response.data));
             get("/Courses").then((response) => setCourses(response.data));
             get("/Staff").then((response) => selectTeacher(response.data));
             }}>Submit</button>
