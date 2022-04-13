@@ -14,14 +14,14 @@
 
 .education-list {
     width: 35%;
-    height: 80%;
+    height: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border: #85F4FF solid 1px;
     position: absolute;
-    left: 10%;
-    top: 110%;
+    left: 25%;
+    top: 140%;
     border-radius: 9px 40px 40px 9px;
 }
 
@@ -30,6 +30,10 @@
 }
 
 .education-list:hover h3 {
+    color: #383838;
+}
+
+.education-list:hover p {
     color: #383838;
 }
 
@@ -109,6 +113,35 @@
     display: block;
     width: 80%;
     margin: 2rem auto;
+}
+
+.btn:hover {
+    background-color: #0c7781;
+    color: #fff;
+}
+
+.selection {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 50px;
+    padding: 10px 38px 10px 16px;
+    background: #fff;
+    background-size: 10px;
+    transition: border-color .1s ease-in-out,box-shadow .1s ease-in-out;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    text-align-last:center;
+    padding: 10px;
+
+}
+.selection:hover {
+    border: 1px solid #999;
+}
+.selection:focus {
+    border: 1px solid #999;
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,.2);
+    outline: none;
 }
 
 @media screen and (max-width: 980px) {

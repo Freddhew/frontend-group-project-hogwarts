@@ -41,21 +41,22 @@ return (
         <ul>
         <li className='educationTitle'>
                         <p>
-                            Course: {content.course}
+                        &nbsp;&nbsp;<b>Course:</b> {content.course}
                         </p>
                         <p>
-                            Professor: {content.teacher}
+                        &nbsp;&nbsp;<b>Professor:</b> {content.teacher}
                         </p>
                         <p>
-                            House: {content.house}
+                        &nbsp;&nbsp;<b>House:</b> {content.house}
                         </p>
                         <p>
-                            Description: {content.comment}
+                        &nbsp;&nbsp;<b>Comments:</b> {content.comment}
                         </p>
                 </li>
         </ul>
         </div>
     </div>
+    <button className='btn'>Apply Now</button>
 </div>
 
     <div className='card-container'>
@@ -96,7 +97,7 @@ return (
 
             <p>- Courses -</p>
             <select className='selection' value={chooseCourse} onChange={(event) => setChooseCourse(event.target.value)}>
-                <option value="" disabled>Choose a Course</option>
+                <option value="" disabled>Select Your Course</option>
                 {courses.map((course) => {
                 return (
                 <option key={course.courseId} className="option">
