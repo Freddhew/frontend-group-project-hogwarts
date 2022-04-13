@@ -7,13 +7,10 @@ function Educations(props) {
 
     const [courses, setCourses] = useState([]);
     const [eventLists, seteventLists] = useState([]);
-    const [staff, setStaff] = useState([]);
     const [chooseCourse, setChooseCourse] = useState("");
     const [chooseTitle, setChooseTitle] = useState("");
     const [selectTeacher, setSelectTeacher] = useState("");
     const [chooseDescription, setChooseDescription] = useState("");
-    const [fn, setFn] = useState("");
-    const [ln, setLn] = useState("");
 
 useEffect(() => {
     get("/Educations").then((response) => seteventLists(response.data));
