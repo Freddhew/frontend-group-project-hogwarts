@@ -5,66 +5,75 @@ import {useState, useEffect } from 'react'
 
 function Educations(props) {
 
-    const [counter, setcounter] = useState(Date.now());
     const [courses, setCourses] = useState([]);
     const [eventLists, setEventLists] = useState([]);
     const [chooseCourse, setChooseCourse] = useState("");
     const [selectTeacher, setSelectTeacher] = useState("");
     const [selectHouse, setSelectHouse] = useState("");
+    const [selectComment, setSelectComment] = useState("");
+    // const [isSubmit, setIsSubmit] = useState(false);
+    const [content, setContent] = useState({});
 
 useEffect(() => {
-    get("/Educations").then((response) => setEventLists(response.data));
+    get("/education").then((response) => setEventLists(response.data));
     get("/Courses").then((response) => setCourses(response.data));
-    get("/Staff").then((response) => selectTeacher(response.data));
+    get("/Staff").then((response) => setSelectTeacher(response.data));
 }, []);
+
+// useEffect(() => {
+
+// const timer = setTimeout(() => {
+//     if (isSubmit) {
+//         setIsSubmit(false);
+//     }
+// }, 1000);
+
+// return () => clearTimeout(timer);
+
+// }, [isSubmit]);
 
 return (
 <div className='educations'>
 <div className='education-list'>
     <div>
     <h3>Your Magical Journey</h3>
-
         <div>
         <ul>
-            {eventLists.map((eventList) => {
-                console.log(eventList)
-            return (
-                <div>
-                <li className='educationTitle'>
-                    {props.authorized ? (
+        <li className='educationTitle'>
                         <p>
-                            Course: {eventList.chooseCourse}
-                        </p>
-                        ) : null}
-                        <p>
-                            Professor: {eventList.selectTeacher}
+                            Course: {content.course}
                         </p>
                         <p>
-                            House: {eventList.selectHouse}
-                        </p>
-                        {/* <p>
-                            Duration: {eventList.duration}
+                            Professor: {content.teacher}
                         </p>
                         <p>
-                            Description: {eventList.description}
-                        </p> */}
+                            House: {content.house}
+                        </p>
+                        <p>
+                            Description: {content.comment}
+                        </p>
                 </li>
-                </div>
-            );
-            })}
         </ul>
         </div>
     </div>
 </div>
 
     <div className='card-container'>
-        <div className='card selectors'>
+        <form className='card selectors' onSubmit={(event) => {event.preventDefault();
+            
+            setContent({ 
+                course: chooseCourse,
+                teacher: selectTeacher,
+                house: selectHouse,
+                comment: selectComment
+            })
+            }}>
 
             <h3>Enter Education Information</h3>
             <p>- Select Your House -</p>
             <select className='selection' value={selectHouse}
                     onChange={(event) => setSelectHouse(event.target.value)}>
-                <option value="" disabled selected>Select Your House</option>
+                <option value="" disabled>Select Your House</option>
                 <option>Gryffindor</option>
                 <option>Hufflepuff</option>
                 <option>Ravenclaw</option>
@@ -75,11 +84,10 @@ return (
             <p>- Education Leader -</p>
             <select className='selection' value={selectTeacher} 
                     onChange={(event) => setSelectTeacher(event.target.value)}>
-            <option value="" 
-                    selected hidden>Select Your Professor</option>
+            <option value="" hidden>Select Your Professor</option>
             {courses.map((teacher) => {
                 return (
-                    <option key={teacher.id}>
+                    <option key={teacher.courseId}>
                     {`${teacher.teacher}  `}
                     </option>
                 );
@@ -88,10 +96,10 @@ return (
 
             <p>- Courses -</p>
             <select className='selection' value={chooseCourse} onChange={(event) => setChooseCourse(event.target.value)}>
-                <option value="" disabled selected>Choose a Course</option>
+                <option value="" disabled>Choose a Course</option>
                 {courses.map((course) => {
                 return (
-                <option className="option">
+                <option key={course.courseId} className="option">
                 {` ${course.courseName}`}
                 </option>
                 );
@@ -99,22 +107,11 @@ return (
             </select>
 
             <p>- Your Comments -</p>
-            <textarea placeholder='Share your thoughts with us...'></textarea>
+            <textarea value={selectComment} onChange={(event) => setSelectComment(event.target.value)} placeholder='Share your thoughts with us...'></textarea>
             
-            <button className='btn' onClick={()=>{
-                        post("/Educations", {
-                        course:chooseCourse,
-                        professor:selectTeacher,
-                        house:selectHouse,
-                        // duration:duration,
-                        // description:description,
-                        });
-                        setcounter(Date.now());
-            get("/Educations").then((response) => setEventLists(response.data));
-            get("/Courses").then((response) => setCourses(response.data));
-            get("/Staff").then((response) => selectTeacher(response.data));
-            }}>Submit</button>
-        </div>
+            <button className='btn' type='submit'>Submit</button>
+            
+        </form>
     </div>
     </div>
 )}
