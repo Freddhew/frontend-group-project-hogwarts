@@ -59,8 +59,10 @@ return (
             <p>- Select Your House -</p>
             <select className='selection'>
                 <option value="" disabled selected>Select Your House</option>
-                <option className="option">
-                </option>
+                <option>Gryffindor</option>
+                <option>Hufflepuff</option>
+                <option>Ravenclaw</option>
+                <option>Slytherin</option>
                 );
             </select>
 
@@ -90,8 +92,9 @@ return (
                 })} 
             </select>
 
-            <p>- Education Descriptions -</p>
-            <textarea value={chooseDescription} onChange={(event) => setChooseDescription(event.target.value)} placeholder='Share your thoughts with us...'></textarea>
+            <p>- Your Comments -</p>
+            <textarea placeholder='Share your thoughts with us...'></textarea>
+            
             <button className='btn' onClick={() => {
             post("/Education", {
             Leader: selectTeacher,
