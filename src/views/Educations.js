@@ -24,7 +24,7 @@ return (
     {/* "Pop-up list" */}
     <div className='education-list'>
         <div>
-            <h3>Your magical journey:</h3>
+            <h3>Your Magical Journey</h3>
                 <div>
                     <ul>
                         {eventLists.map((eventList) => {
