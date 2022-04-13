@@ -4,19 +4,21 @@ import { get, post, put, erase } from '../utility/fetchUtility.js'
 import {useState, useEffect } from 'react'
 
 function Educations(props) {
-    const [leaders, setLeaders] = useState([]);
+
     const [courses, setCourses] = useState([]);
     const [eventLists, seteventLists] = useState([]);
-    
+    const [staff, setStaff] = useState([]);
     const [chooseCourse, setChooseCourse] = useState("");
     const [chooseTitle, setChooseTitle] = useState("");
-    const [chooseLeader, setChooseLeader] = useState("");
+    const [selectTeacher, setSelectTeacher] = useState("");
     const [chooseDescription, setChooseDescription] = useState("");
+    const [fn, setFn] = useState("");
+    const [ln, setLn] = useState("");
 
 useEffect(() => {
     get("/Educations").then((response) => seteventLists(response.data));
     get("/Courses").then((response) => setCourses(response.data));
-    get("/Staff").then((response) => setLeaders(response.data));
+    get("/Staff").then((response) => selectTeacher(response.data));
 }, []);
 
 return (
@@ -57,49 +59,31 @@ return (
     <div className='card-container'>
         <div className='card selectors'>
             <h3>Enter Education Information</h3>
-            <p>- Education -</p>
-            <select className='selection' value={chooseTitle} onChange={(event) => setChooseTitle(event.target.value)}>
-                <option value="" disabled selected>Select your education</option>
-                {eventLists.map((eventList) => {
-                return (
+            <p>- Select Your House -</p>
+            <select className='selection'>
+                <option value="" disabled selected>Select Your House</option>
                 <option className="option">
-                    {`${eventList.title}`}
                 </option>
                 );
-                })}
             </select>
 
             <p>- Education Leader -</p>
-            <select className='selection' value={chooseLeader} onChange={(event) => setChooseLeader(event.target.value)}>
-                <option value="" disabled selected>Choose your professor</option>
-                {leaders.map((leader) => {
-                if (leader.profession === "Leader") {
+            <select className='selection' value={selectTeacher} 
+                    onChange={(event) => setSelectTeacher(event.target.value)}>
+            <option value="" 
+                    selected hidden>Select Your Professor</option>
+            {courses.map((teacher) => {
                 return (
-                <option className="selection">
-                    {`${leader.firstName} ${leader.lastName} `}
-                </option>
-                );
-                }
-                })} 
-            </select>
-
-            {/* <select className='course-input' 
-                      value={selectTeacher} 
-                      onChange={(event) => setSelectTeacher(event.target.value)}>
-              <option value="" 
-                      selected hidden>Select Teacher</option>
-              {staff.map((staffs) => {
-                  return (
-                    <option key={staffs.id}>
-                      {`${staffs.fn} ${staffs.ln}  `}
+                    <option key={teacher.id}>
+                    {`${teacher.teacher}  `}
                     </option>
-                  );
-              })}
-            </select> */}
+                );
+            })}
+            </select>
 
             <p>- Prerequisite Courses -</p>
             <select className='selection' value={chooseCourse} onChange={(event) => setChooseCourse(event.target.value)}>
-                <option value="" disabled selected>Choose a course</option>
+                <option value="" disabled selected>Choose a Course</option>
                 {courses.map((course) => {
                 return (
                 <option className="option">
@@ -113,7 +97,7 @@ return (
             <textarea value={chooseDescription} onChange={(event) => setChooseDescription(event.target.value)} placeholder='Share your thoughts with us...'></textarea>
             <button className='btn' onClick={() => {
             post("/Education", {
-            Leader: chooseLeader,
+            Leader: selectTeacher,
             Title: chooseTitle,
             Prerequisite: chooseCourse,
             Description: chooseDescription,
@@ -122,7 +106,7 @@ return (
             seteventLists(response.data)
             );
             get("/Courses").then((response) => setCourses(response.data));
-            get("/Staff").then((response) => setLeaders(response.data));
+            get("/Staff").then((response) => selectTeacher(response.data));
             }}>Submit</button>
         </div>
     </div>
