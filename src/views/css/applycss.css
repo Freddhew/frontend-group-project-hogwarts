@@ -1,6 +1,6 @@
 
   .Apply {
-    display: flex;
+    display: block;
     justify-content: left;
     margin-top: 5rem;
   }
@@ -8,10 +8,12 @@
   form{
     margin: 2em;
     color: white;
+  
   }
 
   h2 {
-    text-align: center;
+    text-align: left;
+    padding-left: 3.5rem;
   }
   .input1 {
     display: block;
@@ -55,11 +57,15 @@
   
   .eduList{
     list-style-type: none;
-    background-color: rgba(243, 243, 243, 0.104)
+    background-color: black;
+    color: white;
+    margin-left: 6rem;
+   
+ 
 }
 
 .allList{
-    text-align: center;
+    text-align: left;
 }
 
 .allListShown{
@@ -67,4 +73,5 @@
     text-align: start;
     margin: 0.7em 0.7em;
     padding-bottom: 0.73em;
+   
 }
